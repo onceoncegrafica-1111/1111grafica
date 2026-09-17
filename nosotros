@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>1111 Gráfica & Soluciones Digitales | Hub Oficial</title>
     <meta name="description" content="Estudio de gráfica integral, diseño de identidad y herramientas de software para potenciar tu empresa.">
     
@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23A0D18F'/><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-size='32' font-family='sans-serif' font-weight='900' fill='%23E989B7'>1111</text></svg>" type="image/svg+xml">
 
-    <!-- FUENTES DE ALTA LEGIBILIDAD -->
+    <!-- FUENTES CORPORATIVAS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@700&display=block" rel="stylesheet">
@@ -112,7 +112,7 @@
             z-index: 1;
         }
 
-        /* PATRÓN REPETITIVO DEL 1111 VECTORIAL FLOTANDO */
+        /* PATRÓN REPETITIVO DEL 1111 EN DERIVA CONTINUA */
         .stencil-1111-pattern {
             position: absolute;
             top: -20%;
@@ -166,6 +166,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            user-select: none;
         }
 
         .lang-switch-pills {
@@ -416,12 +417,12 @@
             stroke-width: 2.8;
         }
 
-        /* MODAL DE GALERÍA RÁPIDA */
+        /* MODALES FLOTANTES */
         .modal-backdrop {
             position: fixed;
             inset: 0;
-            background: rgba(31, 46, 27, 0.65);
-            backdrop-filter: blur(8px);
+            background: rgba(28, 42, 25, 0.70);
+            backdrop-filter: blur(10px);
             z-index: 2000;
             display: none;
             align-items: center;
@@ -439,11 +440,13 @@
         .modal-box {
             background: #FFFFFF;
             border: 2px solid var(--brand-green);
-            border-radius: 22px;
-            max-width: 440px;
+            border-radius: 26px;
+            max-width: 500px;
             width: 100%;
-            padding: 20px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+            max-height: 88vh;
+            overflow-y: auto;
+            padding: 22px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
             display: flex;
             flex-direction: column;
             gap: 14px;
@@ -464,7 +467,7 @@
 
         .modal-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: var(--text-main);
         }
@@ -472,49 +475,244 @@
         .btn-close-modal {
             background: rgba(160, 209, 143, 0.2);
             border: none;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             color: var(--brand-green-text);
             font-weight: 900;
+            font-size: 16px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
         }
 
-        .gallery-grid-preview {
+        .btn-close-modal:hover {
+            background: var(--brand-pink);
+            color: #FFFFFF;
+            transform: rotate(90deg);
+        }
+
+        /* GRILLA ULTRA RÁPIDA CON SHIMMER */
+        .gallery-grid-dynamic {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
+            max-height: 52vh;
+            overflow-y: auto;
+            padding-right: 2px;
         }
 
-        .gallery-thumb {
+        .gallery-item-wrap {
             aspect-ratio: 1;
-            border-radius: 12px;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1.5px solid var(--border-card);
+            cursor: zoom-in;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s var(--spring);
+            background: linear-gradient(90deg, #F0F6EE 25%, #E6F0E3 50%, #F0F6EE 75%);
+            background-size: 200% 100%;
+            animation: skeletonGlow 1.4s infinite ease-in-out;
+        }
+
+        @keyframes skeletonGlow {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .gallery-item-wrap.loaded {
+            animation: none;
             background: #F0F6EE;
-            border: 1px solid var(--border-card);
+        }
+
+        .gallery-item-wrap:hover {
+            transform: scale(1.04);
+            border-color: var(--brand-pink);
+        }
+
+        .gallery-item-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0;
+            transition: opacity 0.28s ease;
+        }
+
+        .gallery-item-wrap.loaded img {
+            opacity: 1;
+        }
+
+        /* TARJETAS DE PROYECTOS SOFTWARE & WEBS REALES */
+        .software-cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .software-card-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 13px 15px;
+            border-radius: 16px;
+            background: #F7FAF5;
+            border: 1.5px solid var(--border-card);
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.25s var(--spring);
+        }
+
+        .software-card-item:hover {
+            background: #FFFFFF;
+            border-color: var(--brand-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--brand-pink-glow);
+        }
+
+        .soft-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .soft-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .soft-tag {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .soft-badge-link {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--brand-pink-deep);
+            background: rgba(233, 137, 183, 0.2);
+            padding: 5px 11px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* LIGHTBOX PRO */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(14, 20, 13, 0.95);
+            backdrop-filter: blur(14px);
+            z-index: 5000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .lightbox-overlay.active { display: flex; }
+
+        .lightbox-container {
+            position: relative;
+            max-width: 94vw;
+            max-height: 88vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            font-weight: 700;
-            text-align: center;
-            padding: 6px;
+            cursor: default;
         }
 
-        .gallery-thumb span { font-size: 18px; margin-bottom: 2px; }
+        .lightbox-img-full {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 18px;
+            border: 2.5px solid #FFFFFF;
+            box-shadow: 0 24px 70px rgba(0,0,0,0.6), 0 0 25px var(--brand-pink-glow);
+            object-fit: contain;
+            animation: zoomIn 0.25s var(--spring);
+        }
 
-        .btn-open-full-gallery {
-            background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-deep) 100%);
+        @keyframes zoomIn {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lb-nav-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(255, 255, 255, 0.6);
             color: #FFFFFF;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.88rem;
+            font-size: 26px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 5010;
+        }
+
+        .lb-nav-btn:hover {
+            background: var(--brand-pink);
+            border-color: var(--brand-pink);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lb-prev { left: 16px; }
+        .lb-next { right: 16px; }
+
+        .lb-close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1.5px solid #FFFFFF;
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 5020;
+        }
+
+        .lb-close-btn:hover {
+            background: #EF4444;
+            border-color: #EF4444;
+            transform: scale(1.1);
+        }
+
+        .lb-counter {
+            margin-top: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
             font-weight: 800;
-            text-align: center;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 14px;
-            box-shadow: 0 4px 14px rgba(94, 155, 74, 0.35);
+            color: #FFFFFF;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 4px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         /* FOOTER */
@@ -553,6 +751,11 @@
             .btn-card { padding: 14px 15px; }
             .btn-title { font-size: 0.98rem; }
             .btn-desc { font-size: 0.76rem; }
+            .gallery-grid-dynamic { grid-template-columns: repeat(2, 1fr); }
+            .lb-nav-btn { width: 40px; height: 40px; font-size: 22px; }
+            .lb-prev { left: 8px; }
+            .lb-next { right: 8px; }
+            .lb-close-btn { top: 12px; right: 12px; width: 38px; height: 38px; }
         }
     </style>
 </head>
@@ -578,11 +781,10 @@
             </div>
         </nav>
 
-        <!-- HEADER CON LOGO OFICIAL EN 3D FLOTANTE -->
+        <!-- HEADER CON LOGO OFICIAL 1111 EN 3D FLOTANTE -->
         <header class="brand-header">
             <div class="logo-stage">
                 <div class="logo-wrapper">
-                    <!-- LOGO OFICIAL 1111 -->
                     <svg class="logo-svg" viewBox="0 0 481.2 481.2" xmlns="http://www.w3.org/2000/svg">
                         <path fill="#A0D18F" d="M481.2,240.6c0,27.09-4.48,53.14-12.74,77.44-.54,1.6-1.1,3.19-1.68,4.78-33.59,92.39-122.18,158.38-226.18,158.38S48.01,415.21,14.42,322.82c-.58-1.59-1.14-3.18-1.68-4.78C4.48,293.74,0,267.69,0,240.6s4.48-53.14,12.73-77.44c.55-1.59,1.1-3.19,1.68-4.77C48,65.99,136.59,0,240.6,0s192.6,65.99,226.19,158.39c.58,1.58,1.13,3.18,1.68,4.77,8.25,24.3,12.73,50.35,12.73,77.44Z"/>
                         <path fill="#FFFFFF" d="M481.2,240.6c0,27.09-4.48,53.14-12.74,77.44H12.74C4.48,293.74,0,267.69,0,240.6s4.48-53.14,12.73-77.44h455.74c8.25,24.3,12.73,50.35,12.73,77.44Z"/>
@@ -602,7 +804,7 @@
             </p>
 
             <div class="social-bar">
-                <a href="https://wa.me/5491131933611" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
+                <a href="https://wa.me/5491131933611" target="_blank" rel="noopener noreferrer" class="social-btn" id="socialWspTop" aria-label="WhatsApp">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
                 </a>
                 <a href="https://www.instagram.com/1111.grafica" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
@@ -614,10 +816,11 @@
             </div>
         </header>
 
-        <!-- BOTÓN 1: WHATSAPP DIRECTO -->
-        <a href="https://wa.me/5491131933611" target="_blank" rel="noopener noreferrer" class="btn-card hero-featured">
+        <!-- BOTÓN 1: WHATSAPP DIRECTO (ÍCONO EN TAMAÑO PROMINENTE) -->
+        <a href="https://wa.me/5491131933611" target="_blank" rel="noopener noreferrer" class="btn-card hero-featured" id="btnWspMain">
             <div class="icon-box" style="background: rgba(160, 209, 143, 0.3);">
-                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <!-- Ícono optimizado a 32px para presencia clara y nítida -->
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 32px; height: 32px;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
             </div>
             <div class="btn-info">
                 <div class="btn-title-row">
@@ -641,7 +844,7 @@
             <div class="arrow-box"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div>
         </a>
 
-        <!-- BOTÓN 3: TRABAJOS DE GRÁFICA (GALERÍA) -->
+        <!-- BOTÓN 3: TRABAJOS DE GRÁFICA (GALERÍA DINÁMICA DE 50 FOTOS) -->
         <div class="btn-card" onclick="openGalleryModal()">
             <div class="icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -656,20 +859,23 @@
             <div class="arrow-box"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div>
         </div>
 
-        <!-- BOTÓN 4: DISEÑO GRÁFICO -->
-        <a href="https://wa.me/5491131933611?text=Hola!%20Quisiera%20consultar%20por%20servicios%20de%20Diseño%20Gráfico." target="_blank" rel="noopener noreferrer" class="btn-card">
+        <!-- BOTÓN 4: PORTFOLIO DE DISEÑO GRÁFICO EN PDF (VUELVE ATRÁS CON UN TOQUE) -->
+            <a href="https://onceoncegrafica-1111.github.io/1111grafica/Portfolio%20DGI%202026.pdf" class="btn-card" id="btnPortfolioPdf">
             <div class="icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             </div>
             <div class="btn-info">
-                <span class="btn-title" id="t_btn4_title">Diseño Gráfico & Marcas</span>
-                <span class="btn-desc" id="t_btn4_desc">Logotipos, folletos, menúes y packaging</span>
+                <div class="btn-title-row">
+                    <span class="btn-title" id="t_btn4_title">Diseño Gráfico & Marcas</span>
+                    <span class="badge-pill" id="t_btn4_badge">PDF 2026</span>
+                </div>
+                <span class="btn-desc" id="t_btn4_desc">Ver Logofolio, branding y packaging en PDF</span>
             </div>
             <div class="arrow-box"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div>
         </a>
 
-        <!-- BOTÓN 5: SOLUCIONES DIGITALES & SOFTWARE (TEXTO SIMPLIFICADO Y CLARO) -->
-        <a href="https://wa.me/5491131933611?text=Hola!%20Quisiera%20conocer%20las%20herramientas%20digitales%20y%20software%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="btn-card">
+        <!-- BOTÓN 5: SOLUCIONES DIGITALES & SOFTWARE (ORDEN: BALDORIA, ALVEAR, FRIMAQ, FOUR SEASONS) -->
+        <div class="btn-card" onclick="openSoftwareModal()">
             <div class="icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
@@ -681,7 +887,7 @@
                 <span class="btn-desc" id="t_btn5_desc">Páginas web, catálogos online y automatizaciones fáciles</span>
             </div>
             <div class="arrow-box"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div>
-        </a>
+        </div>
 
         <!-- BOTÓN 6: EMAIL -->
         <a href="mailto:onceonce.grafica@gmail.com" class="btn-card">
@@ -707,35 +913,259 @@
 
     </main>
 
-    <!-- MODAL DE GALERÍA INTERACTIVA -->
-    <div class="modal-backdrop" id="galleryModal" onclick="closeGalleryModal(event)">
-        <div class="modal-box" id="galleryBox">
+    <!-- MODAL 1: GALERÍA DE 50 FOTOS (SHUFFLE ALEATORIO CADA VEZ) -->
+    <div class="modal-backdrop" id="galleryModal" onclick="closeOnBackdrop(event, 'galleryModal')">
+        <div class="modal-box">
             <div class="modal-header">
                 <h3 class="modal-title" id="t_modal_title">Galería de Trabajos</h3>
-                <button type="button" class="btn-close-modal" onclick="closeGalleryModalDirect()">✕</button>
+                <button type="button" class="btn-close-modal" onclick="closeModal('galleryModal')">✕</button>
             </div>
             <p style="font-size:0.82rem; color:var(--text-muted);" id="t_modal_desc">
-                Conocé una muestra de nuestros proyectos de cartelería, vinilos e impresiones comerciales.
+                Conocé nuestros proyectos reales de cartelería, impresiones y rotulación. Tocá cualquier foto para ampliar.
             </p>
 
-            <div class="gallery-grid-preview">
-                <div class="gallery-thumb"><span>🪧</span>Carteles</div>
-                <div class="gallery-thumb"><span>✨</span>Vinilos</div>
-                <div class="gallery-thumb"><span>🏷️</span>Stickers</div>
-                <div class="gallery-thumb"><span>📦</span>Cajas</div>
-                <div class="gallery-thumb"><span>👕</span>Estampas</div>
-                <div class="gallery-thumb"><span>💻</span>Web & Soft</div>
-            </div>
+            <div class="gallery-grid-dynamic" id="dynamicGalleryGrid"></div>
 
-            <!-- Puedes enlazar este botón a tu GitHub Pages, Google Drive o Instagram -->
-            <a href="https://www.instagram.com/1111.grafica" target="_blank" rel="noopener noreferrer" class="btn-open-full-gallery" id="t_modal_btn">
-                Ver Galería Completa en Instagram ↗
+            <a href="https://www.instagram.com/1111.grafica" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-deep) 100%); color: #FFFFFF; font-size: 0.88rem; font-weight: 800; text-align: center; text-decoration: none; padding: 12px; border-radius: 14px; box-shadow: 0 4px 14px rgba(94, 155, 74, 0.3);" id="t_modal_btn">
+                Ver más en Instagram ↗
             </a>
         </div>
     </div>
 
-    <!-- SCRIPT DE IDIOMAS Y FUNCIONAMIENTO -->
+    <!-- MODAL 2: ORDEN ESTRICTO: 1° BALDORIA, 2° ALVEAR, 3° FRIMAQ, 4° FOUR SEASONS -->
+    <div class="modal-backdrop" id="softwareModal" onclick="closeOnBackdrop(event, 'softwareModal')">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" id="t_soft_title">Páginas Web & Software</h3>
+                <button type="button" class="btn-close-modal" onclick="closeModal('softwareModal')">✕</button>
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted);" id="t_soft_desc">
+                Desarrollamos soluciones digitales, cartas interactivas y webs de alto rendimiento para comercios y marcas:
+            </p>
+
+            <div class="software-cards-list">
+                <!-- 1. BALDORIA MADRID -->
+                <a href="https://onceoncegrafica-1111.github.io/baldoriamadrid/" target="_blank" rel="noopener noreferrer" class="software-card-item">
+                    <div class="soft-meta">
+                        <span class="soft-name">Baldoria Madrid</span>
+                        <span class="soft-tag">Gastronomía & Carta Online</span>
+                    </div>
+                    <span class="soft-badge-link">Ver Web ↗</span>
+                </a>
+
+                <!-- 2. PELUQUERÍA ALVEAR -->
+                <a href="https://onceoncegrafica-1111.github.io/peluqueriaalvear/" target="_blank" rel="noopener noreferrer" class="software-card-item">
+                    <div class="soft-meta">
+                        <span class="soft-name">Peluquería Alvear</span>
+                        <span class="soft-tag">Servicios, Estilo & Reservas</span>
+                    </div>
+                    <span class="soft-badge-link">Ver Web ↗</span>
+                </a>
+
+                <!-- 3. FRIMAQ -->
+                <a href="https://onceoncegrafica-1111.github.io/frimaq/" target="_blank" rel="noopener noreferrer" class="software-card-item">
+                    <div class="soft-meta">
+                        <span class="soft-name">Frimaq Maquinarias</span>
+                        <span class="soft-tag">Catálogo Industrial & Empresa</span>
+                    </div>
+                    <span class="soft-badge-link">Ver Web ↗</span>
+                </a>
+
+                <!-- 4. FOUR SEASONS MX -->
+                <a href="https://onceoncegrafica-1111.github.io/fourseasonsmx/" target="_blank" rel="noopener noreferrer" class="software-card-item">
+                    <div class="soft-meta">
+                        <span class="soft-name">Four Seasons MX</span>
+                        <span class="soft-tag">Hotelería, Lujo & Experiencias</span>
+                    </div>
+                    <span class="soft-badge-link">Ver Web ↗</span>
+                </a>
+            </div>
+
+            <!-- COTIZAR SOFTWARE POR WHATSAPP (MENSAJE ADAPTADO AL IDIOMA) -->
+            <a href="https://wa.me/5491131933611" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(135deg, var(--brand-pink) 0%, var(--brand-pink-deep) 100%); color: #FFFFFF; font-size: 0.88rem; font-weight: 800; text-align: center; text-decoration: none; padding: 12px; border-radius: 14px; box-shadow: 0 4px 14px var(--brand-pink-glow);" id="t_soft_cta">
+                Cotizar mi Página Web por WhatsApp ↗
+            </a>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX PRO INTERACTIVO -->
+    <div class="lightbox-overlay" id="lightboxView" onclick="closeLightboxOnBg(event)">
+        <button type="button" class="lb-close-btn" onclick="closeLightbox()" title="Cerrar (Esc)">✕</button>
+        <button type="button" class="lb-nav-btn lb-prev" onclick="navLightbox(-1, event)" title="Anterior">‹</button>
+        
+        <div class="lightbox-container" id="lightboxContainer" onclick="event.stopPropagation()">
+            <img src="" alt="Trabajo 1111 Gráfica" class="lightbox-img-full" id="lightboxImg">
+            <span class="lb-counter" id="lightboxCounter">1 / 50</span>
+        </div>
+
+        <button type="button" class="lb-nav-btn lb-next" onclick="navLightbox(1, event)" title="Siguiente">›</button>
+    </div>
+
+    <!-- SCRIPT DE FOTOS REALES, NAVEGACIÓN Y TRADUCCIÓN COMPLETA -->
     <script>
+        const TOTAL_PHOTOS = 50;
+
+        // Estructura optimizada con tus carpetas miniaturas (8KB) e imagenes (HD)
+        const GITHUB_PHOTOS = Array.from({ length: TOTAL_PHOTOS }, (_, i) => ({
+            id: i + 1,
+            thumb: `https://cdn.jsdelivr.net/gh/onceoncegrafica-1111/1111grafica@main/miniaturas/foto_${i + 1}.webp`,
+            full: `https://cdn.jsdelivr.net/gh/onceoncegrafica-1111/1111grafica@main/imagenes/foto_${i + 1}.webp`,
+            fallbackThumb: `./miniaturas/foto_${i + 1}.webp`,
+            fallbackFull: `./imagenes/foto_${i + 1}.webp`
+        }));
+
+        let activeShuffledPhotos = [];
+        let currentPhotoIndex = 0;
+
+        // PRECARGA INVISIBLE EN SEGUNDO PLANO
+        function startBackgroundPreload() {
+            setTimeout(() => {
+                GITHUB_PHOTOS.slice(0, 18).forEach(item => {
+                    const preloadImg = new Image();
+                    preloadImg.src = item.thumb;
+                });
+            }, 1200);
+        }
+
+        // ALGORITMO FISHER-YATES: ORDEN ALEATORIO
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        // RENDERIZADO DE LA GRILLA
+        function renderShuffledGallery() {
+            const container = document.getElementById('dynamicGalleryGrid');
+            container.innerHTML = '';
+
+            activeShuffledPhotos = shuffleArray(GITHUB_PHOTOS);
+
+            activeShuffledPhotos.forEach((item, index) => {
+                const wrap = document.createElement('div');
+                wrap.className = 'gallery-item-wrap';
+                wrap.onclick = () => openLightbox(index);
+
+                const img = document.createElement('img');
+                img.alt = `Trabajo 1111 Gráfica #${item.id}`;
+                img.loading = 'lazy';
+                img.decoding = 'async';
+
+                img.onload = function() {
+                    wrap.classList.add('loaded');
+                };
+
+                // Si por alguna razón la miniatura tarda, recurre a la imagen principal
+                img.onerror = function() {
+                    if (!this.dataset.triedOriginal) {
+                        this.dataset.triedOriginal = "true";
+                        this.src = item.full;
+                    } else if (!this.dataset.triedFallback) {
+                        this.dataset.triedFallback = "true";
+                        this.src = item.fallbackFull;
+                    } else {
+                        wrap.style.display = 'none';
+                    }
+                };
+
+                img.src = item.thumb;
+
+                wrap.appendChild(img);
+                container.appendChild(wrap);
+            });
+        }
+
+        // CONTROL DEL LIGHTBOX
+        function openLightbox(index) {
+            currentPhotoIndex = index;
+            updateLightboxContent();
+            document.getElementById('lightboxView').classList.add('active');
+
+            try {
+                history.pushState({ lbOpen: true }, '');
+            } catch(e) {}
+        }
+
+        function updateLightboxContent() {
+            const item = activeShuffledPhotos[currentPhotoIndex];
+            const img = document.getElementById('lightboxImg');
+            const counter = document.getElementById('lightboxCounter');
+
+            img.src = item.full;
+            counter.innerText = `${currentPhotoIndex + 1} / ${activeShuffledPhotos.length}`;
+
+            // Precarga la foto siguiente en silencio para fluidez
+            const nextIdx = (currentPhotoIndex + 1) % activeShuffledPhotos.length;
+            const nextCache = new Image();
+            nextCache.src = activeShuffledPhotos[nextIdx].full;
+        }
+
+        function navLightbox(direction, event) {
+            if (event) event.stopPropagation();
+            currentPhotoIndex += direction;
+            if (currentPhotoIndex < 0) currentPhotoIndex = activeShuffledPhotos.length - 1;
+            if (currentPhotoIndex >= activeShuffledPhotos.length) currentPhotoIndex = 0;
+            updateLightboxContent();
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxView').classList.remove('active');
+        }
+
+        function closeLightboxOnBg(event) {
+            if (event.target.id === 'lightboxView') closeLightbox();
+        }
+
+        window.addEventListener('keydown', (e) => {
+            const lb = document.getElementById('lightboxView');
+            if (lb.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') navLightbox(-1);
+                if (e.key === 'ArrowRight') navLightbox(1);
+            }
+        });
+
+        window.addEventListener('popstate', () => closeLightbox());
+
+        // DESLIZAR CON EL DEDO (SWIPE)
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const lbView = document.getElementById('lightboxView');
+
+        lbView.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lbView.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX < touchStartX - 45) navLightbox(1);
+            if (touchEndX > touchStartX + 45) navLightbox(-1);
+        }, { passive: true });
+
+        // MODALES
+        function openGalleryModal() {
+            renderShuffledGallery();
+            document.getElementById('galleryModal').classList.add('active');
+        }
+
+        function openSoftwareModal() {
+            document.getElementById('softwareModal').classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        function closeOnBackdrop(e, id) {
+            if (e.target.id === id) closeModal(id);
+        }
+
+        // =========================================================================
+        // TRADUCCIONES TRILINGÜES CON MENSAJES DE WHATSAPP DINÁMICOS
+        // =========================================================================
         const TRANSLATIONS = {
             es: {
                 langHint: "🌐 Idioma",
@@ -749,15 +1179,23 @@
                 btn3_badge: "Fotos",
                 btn3_desc: "Cartelería, vinilos, gigantografías y stickers",
                 btn4_title: "Diseño Gráfico & Marcas",
-                btn4_desc: "Logotipos, folletos, menúes y packaging",
+                btn4_badge: "PDF 2026",
+                btn4_desc: "Ver Logofolio, branding y packaging en PDF",
                 btn5_title: "Soluciones Digitales & Software",
                 btn5_badge: "Para Pymes",
                 btn5_desc: "Páginas web, catálogos online y automatizaciones fáciles",
                 btn6_title: "Correo Electrónico",
                 footer_badge: "CREATIVIDAD & TECNOLOGÍA",
                 modal_title: "Galería de Trabajos",
-                modal_desc: "Conocé una muestra de nuestros proyectos de cartelería, vinilos e impresiones comerciales.",
-                modal_btn: "Ver Galería Completa en Instagram ↗"
+                modal_desc: "Conocé nuestros proyectos reales de cartelería, impresiones y rotulación. Tocá cualquier foto para ampliar.",
+                modal_btn: "Ver más en Instagram ↗",
+                soft_title: "Páginas Web & Software",
+                soft_desc: "Desarrollamos soluciones digitales, cartas interactivas y webs de alto rendimiento para comercios y marcas:",
+                soft_cta: "Cotizar mi Página Web por WhatsApp ↗",
+                
+                // Mensajes de WhatsApp en Español
+                wsp_main_msg: "¡Hola! Me contacto desde la web de 1111 Gráfica y quisiera hacer una consulta.",
+                wsp_soft_msg: "¡Hola! Ví sus trabajos de páginas web y quiero cotizar un proyecto."
             },
             pt: {
                 langHint: "🌐 Idioma",
@@ -771,15 +1209,23 @@
                 btn3_badge: "Fotos",
                 btn3_desc: "Fachadas, adesivos vinílicos e impressões",
                 btn4_title: "Design Gráfico & Marcas",
-                btn4_desc: "Logotipos, panfletos, cardápios e embalagens",
+                btn4_badge: "PDF 2026",
+                btn4_desc: "Ver Logofólio, branding e embalagens em PDF",
                 btn5_title: "Soluções Digitais & Software",
                 btn5_badge: "Para Empresas",
                 btn5_desc: "Sites, catálogos online e automações simples",
                 btn6_title: "E-mail de Contato",
                 footer_badge: "CRIATIVIDADE & TECNOLOGIA",
                 modal_title: "Galeria de Trabalhos",
-                modal_desc: "Veja uma prévia dos nossos projetos gráficos e impressões.",
-                modal_btn: "Ver Galeria Completa no Instagram ↗"
+                modal_desc: "Conheça nossos projetos reais de sinalização e impressão. Toque em qualquer foto para ampliar.",
+                modal_btn: "Ver mais no Instagram ↗",
+                soft_title: "Sites & Softwares Desenvolvidos",
+                soft_desc: "Desenvolvemos soluções digitais, cardápios interativos e sites rápidos para comércios e marcas:",
+                soft_cta: "Solicitar meu Site no WhatsApp ↗",
+                
+                // Mensajes de WhatsApp en Portugués
+                wsp_main_msg: "Olá! Estou entrando em contato pelo site da 1111 Gráfica e gostaria de fazer uma consulta.",
+                wsp_soft_msg: "Olá! Vi os projetos de sites e softwares de vocês e gostaria de solicitar um orçamento."
             },
             en: {
                 langHint: "🌐 Language",
@@ -793,15 +1239,23 @@
                 btn3_badge: "Photos",
                 btn3_desc: "Signage, vinyl decals, banners, and stickers",
                 btn4_title: "Graphic Design & Branding",
-                btn4_desc: "Logos, flyers, food menus, and packaging",
+                btn4_badge: "PDF 2026",
+                btn4_desc: "View Logo portfolio, branding & packaging (PDF)",
                 btn5_title: "Digital Solutions & Software",
                 btn5_badge: "For Business",
                 btn5_desc: "Websites, online catalogs, and easy automated tools",
                 btn6_title: "Email Inquiry",
                 footer_badge: "CREATIVITY & TECHNOLOGY",
-                modal_title: "Portfolio Preview",
-                modal_desc: "Explore a curated showcase of our branding, vinyl, and print projects.",
-                modal_btn: "View Full Gallery on Instagram ↗"
+                modal_title: "Portfolio Showcase",
+                modal_desc: "Explore real signage and print branding projects. Tap any photo to expand.",
+                modal_btn: "Explore more on Instagram ↗",
+                soft_title: "Websites & Digital Software",
+                soft_desc: "We build custom digital menus, websites, and business software tools:",
+                soft_cta: "Get a Website Quote on WhatsApp ↗",
+                
+                // Mensajes de WhatsApp en Inglés
+                wsp_main_msg: "Hello! I am reaching out from the 1111 Gráfica website and would like to make an inquiry.",
+                wsp_soft_msg: "Hello! I saw your website and software projects and would like to request a quote."
             }
         };
 
@@ -823,6 +1277,7 @@
             document.getElementById('t_btn3_desc').innerText = data.btn3_desc;
 
             document.getElementById('t_btn4_title').innerText = data.btn4_title;
+            document.getElementById('t_btn4_badge').innerText = data.btn4_badge;
             document.getElementById('t_btn4_desc').innerText = data.btn4_desc;
 
             document.getElementById('t_btn5_title').innerText = data.btn5_title;
@@ -836,7 +1291,19 @@
             document.getElementById('t_modal_desc').innerText = data.modal_desc;
             document.getElementById('t_modal_btn').innerText = data.modal_btn;
 
-            // Actualizar botones de idioma
+            document.getElementById('t_soft_title').innerText = data.soft_title;
+            document.getElementById('t_soft_desc').innerText = data.soft_desc;
+            document.getElementById('t_soft_cta').innerText = data.soft_cta;
+
+            // =========================================================================
+            // ACTUALIZACIÓN DINÁMICA DE ENLACES DE WHATSAPP AL IDIOMA SELECCIONADO
+            // =========================================================================
+            const wspBase = "https://wa.me/5491131933611?text=";
+            document.getElementById('btnWspMain').href = wspBase + encodeURIComponent(data.wsp_main_msg);
+            document.getElementById('socialWspTop').href = wspBase + encodeURIComponent(data.wsp_main_msg);
+            document.getElementById('t_soft_cta').href = wspBase + encodeURIComponent(data.wsp_soft_msg);
+
+            // Resaltar botón de idioma activo
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             if (lang === 'es') document.getElementById('btnLangEs').classList.add('active');
             if (lang === 'pt') document.getElementById('btnLangPt').classList.add('active');
@@ -845,21 +1312,6 @@
             try {
                 localStorage.setItem('1111_preferred_lang', lang);
             } catch(e) {}
-        }
-
-        // CONTROL DEL MODAL DE GALERÍA
-        function openGalleryModal() {
-            document.getElementById('galleryModal').classList.add('active');
-        }
-
-        function closeGalleryModal(e) {
-            if (e.target.id === 'galleryModal') {
-                document.getElementById('galleryModal').classList.remove('active');
-            }
-        }
-
-        function closeGalleryModalDirect() {
-            document.getElementById('galleryModal').classList.remove('active');
         }
 
         // INICIALIZACIÓN
@@ -872,6 +1324,8 @@
                 savedLang = localStorage.getItem('1111_preferred_lang') || 'es';
             } catch(e) {}
             setLanguage(savedLang);
+
+            startBackgroundPreload();
         });
     </script>
 </body>
