@@ -253,6 +253,7 @@
             height: 8px;
             border-radius: 50%;
             background: var(--brand-pink);
+            flex-shrink: 0;
         }
 
         .section-title {
@@ -386,99 +387,88 @@
             stroke-width: 2.8;
         }
 
-        /* TARJETAS DE PROYECTOS SOFTWARE */
-        .software-cards-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        /* CUADRÍCULA COMPACTA PARA WEBS Y BIO-LINKS (AHORRO DE ESPACIO VERTICAL) */
+        .web-compact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 9px;
         }
 
-        .software-card-item {
+        .compact-card {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: space-between;
-            gap: 12px;
-            padding: 14px 16px;
-            border-radius: 18px;
+            padding: 12px 13px;
+            border-radius: 16px;
             background: var(--bg-card);
             border: 1.5px solid var(--border-card);
             text-decoration: none;
             color: var(--text-main);
             box-shadow: var(--shadow-card);
             transition: all 0.25s var(--spring);
+            min-height: 120px;
         }
 
-        .software-card-item:hover {
+        .compact-card:hover {
             background: #FFFFFF;
-            border-color: var(--border-card-hover);
+            border-color: var(--brand-pink);
             transform: translateY(-2px);
             box-shadow: var(--shadow-hover);
         }
 
-        .soft-num {
+        .compact-top {
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            min-width: 40px;
-            border-radius: 12px;
-            background: rgba(160, 209, 143, 0.2);
-            border: 1.5px solid rgba(160, 209, 143, 0.45);
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .compact-badge-type {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.88rem;
+            font-size: 0.60rem;
             font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 6px;
+            background: rgba(160, 209, 143, 0.25);
             color: var(--brand-green-text);
-            transition: all 0.25s ease;
+            text-transform: uppercase;
         }
 
-        .software-card-item:hover .soft-num {
-            background: var(--brand-pink);
-            color: #FFFFFF;
-            border-color: var(--brand-pink);
+        .compact-badge-type.real-web {
+            background: rgba(233, 137, 183, 0.22);
+            color: var(--brand-pink-deep);
+            border: 1px solid rgba(233, 137, 183, 0.45);
         }
 
-        .soft-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            flex: 1;
-            min-width: 0;
+        .compact-arrow {
+            font-size: 0.78rem;
+            font-weight: 900;
+            color: var(--brand-green-deep);
+            transition: transform 0.2s ease, color 0.2s ease;
         }
 
-        .soft-name {
+        .compact-card:hover .compact-arrow {
+            color: var(--brand-pink-deep);
+            transform: translate(2px, -2px);
+        }
+
+        .compact-name {
             font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
+            font-size: 0.90rem;
             font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-main);
+            margin-bottom: 3px;
         }
 
-        .soft-tag {
-            font-size: 0.74rem;
+        .compact-desc {
+            font-size: 0.70rem;
             color: var(--text-muted);
+            line-height: 1.3;
             font-weight: 600;
         }
 
-        .soft-badge-link {
-            font-size: 0.72rem;
-            font-weight: 800;
-            color: var(--brand-pink-deep);
-            background: rgba(233, 137, 183, 0.2);
-            border: 1px solid rgba(233, 137, 183, 0.45);
-            padding: 6px 12px;
-            border-radius: 999px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
-        }
-
-        .software-card-item:hover .soft-badge-link {
-            background: var(--brand-pink);
-            color: #FFFFFF;
-            border-color: var(--brand-pink);
-        }
-
-        /* GRILLA DE SERVICIOS TÉCNICOS DE AUTOMATIZACIÓN */
+        /* GRILLA DE SERVICIOS TÉCNICOS EXPLICADOS FÁCIL */
         .tech-services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -794,7 +784,6 @@
         }
 
         @media (max-width: 480px) {
-            .tech-services-grid { grid-template-columns: 1fr; }
             .gallery-grid-dynamic { grid-template-columns: repeat(2, 1fr); }
             .lb-prev { left: 8px; }
             .lb-next { right: 8px; }
@@ -859,7 +848,7 @@
                 <div class="btn-info">
                     <div class="btn-title-row">
                         <span class="btn-title" id="t_gal_title">Galería de Trabajos & Marcas</span>
-                        <span class="badge-pill">50 Fotos</span>
+                        <span class="badge-pill" id="t_gal_badge">50 Fotos</span>
                     </div>
                     <span class="btn-desc" id="t_gal_desc">Explorá cartelería, vinilos, packaging y aplicaciones de marca</span>
                 </div>
@@ -882,86 +871,122 @@
             </a>
         </section>
 
-        <!-- BLOQUE 2: SOLUCIONES DIGITALES & REEMPLAZO LINKTREE -->
+        <!-- BLOQUE 2: PÁGINAS WEB & BIO-LINKS (EN FORMATO GRILLA COMPACTA 2xFILA) -->
         <section class="section-block">
             <div class="section-title-wrap">
                 <span class="section-tag-bullet"></span>
                 <span class="section-title" id="t_sec2_title">2. Páginas Web & Reemplazo de Linktree</span>
             </div>
 
-            <div class="software-cards-list">
-                <!-- 1. BALDORIA -->
-                <a href="https://onceoncegrafica-1111.github.io/baldoriamadrid/" target="_blank" rel="noopener noreferrer" class="software-card-item">
-                    <div class="soft-num">01</div>
-                    <div class="soft-meta">
-                        <span class="soft-name">Baldoria Madrid</span>
-                        <span class="soft-tag">Gastronomía & Carta Digital Interactiva</span>
+            <div class="web-compact-grid">
+                <!-- 1. BALDORIA WEB OFICIAL -->
+                <a href="https://baldoriamadrid.com/" target="_blank" rel="noopener noreferrer" class="compact-card">
+                    <div class="compact-top">
+                        <span class="compact-badge-type real-web" id="t_wb1_tag">Web Oficial</span>
+                        <span class="compact-arrow">↗</span>
                     </div>
-                    <span class="soft-badge-link">Ver Web ↗</span>
+                    <div>
+                        <div class="compact-name">Baldoria Madrid</div>
+                        <div class="compact-desc" id="t_wb1_desc">Sitio web completo & reservas restaurante.</div>
+                    </div>
                 </a>
 
-                <!-- 2. ALVEAR -->
-                <a href="https://onceoncegrafica-1111.github.io/peluqueriaalvear/" target="_blank" rel="noopener noreferrer" class="software-card-item">
-                    <div class="soft-num">02</div>
-                    <div class="soft-meta">
-                        <span class="soft-name">Peluquería Alvear</span>
-                        <span class="soft-tag">Servicios, Estilo & Reservas Online</span>
+                <!-- 2. HOTEL MIRAMAR BY WINDSOR -->
+                <a href="https://windsorhoteis.com/hotel/miramar-by-windsor-copacabana/" target="_blank" rel="noopener noreferrer" class="compact-card">
+                    <div class="compact-top">
+                        <span class="compact-badge-type real-web" id="t_wb2_tag">Web Hotel</span>
+                        <span class="compact-arrow">↗</span>
                     </div>
-                    <span class="soft-badge-link">Ver Web ↗</span>
+                    <div>
+                        <div class="compact-name">Miramar Windsor</div>
+                        <div class="compact-desc" id="t_wb2_desc">Web oficial de lujo en Copacabana.</div>
+                    </div>
                 </a>
 
-                <!-- 3. FRIMAQ -->
-                <a href="https://onceoncegrafica-1111.github.io/frimaq/" target="_blank" rel="noopener noreferrer" class="software-card-item">
-                    <div class="soft-num">03</div>
-                    <div class="soft-meta">
-                        <span class="soft-name">Frimaq Maquinarias</span>
-                        <span class="soft-tag">Catálogo Industrial & Empresa</span>
+                <!-- 3. BALDORIA CARTA INTERACTIVA -->
+                <a href="https://onceoncegrafica-1111.github.io/baldoriamadrid/" target="_blank" rel="noopener noreferrer" class="compact-card">
+                    <div class="compact-top">
+                        <span class="compact-badge-type" id="t_wb3_tag">Bio-Link</span>
+                        <span class="compact-arrow">↗</span>
                     </div>
-                    <span class="soft-badge-link">Ver Web ↗</span>
+                    <div>
+                        <div class="compact-name">Baldoria Bio</div>
+                        <div class="compact-desc" id="t_wb3_desc">Carta digital interactiva y enlaces directos.</div>
+                    </div>
                 </a>
 
-                <!-- 4. FOUR SEASONS -->
-                <a href="https://onceoncegrafica-1111.github.io/fourseasonsmx/" target="_blank" rel="noopener noreferrer" class="software-card-item">
-                    <div class="soft-num">04</div>
-                    <div class="soft-meta">
-                        <span class="soft-name">Four Seasons MX</span>
-                        <span class="soft-tag">Hotelería, Lujo & Experiencias</span>
+                <!-- 4. PELUQUERÍA ALVEAR -->
+                <a href="https://onceoncegrafica-1111.github.io/peluqueriaalvear/" target="_blank" rel="noopener noreferrer" class="compact-card">
+                    <div class="compact-top">
+                        <span class="compact-badge-type" id="t_wb4_tag">Bio-Link</span>
+                        <span class="compact-arrow">↗</span>
                     </div>
-                    <span class="soft-badge-link">Ver Web ↗</span>
+                    <div>
+                        <div class="compact-name">Peluquería Alvear</div>
+                        <div class="compact-desc" id="t_wb4_desc">Catálogo de servicios, precios y turnos online.</div>
+                    </div>
+                </a>
+
+                <!-- 5. FRIMAQ -->
+                <a href="https://onceoncegrafica-1111.github.io/frimaq/" target="_blank" rel="noopener noreferrer" class="compact-card">
+                    <div class="compact-top">
+                        <span class="compact-badge-type" id="t_wb5_tag">Bio-Link</span>
+                        <span class="compact-arrow">↗</span>
+                    </div>
+                    <div>
+                        <div class="compact-name">Frimaq Maquinarias</div>
+                        <div class="compact-desc" id="t_wb5_desc">Catálogo industrial y contacto para clientes.</div>
+                    </div>
+                </a>
+
+                <!-- 6. FOUR SEASONS -->
+                <a href="https://onceoncegrafica-1111.github.io/fourseasonsmx/" target="_blank" rel="noopener noreferrer" class="compact-card">
+                    <div class="compact-top">
+                        <span class="compact-badge-type" id="t_wb6_tag">Bio-Link</span>
+                        <span class="compact-arrow">↗</span>
+                    </div>
+                    <div>
+                        <div class="compact-name">Four Seasons MX</div>
+                        <div class="compact-desc" id="t_wb6_desc">Experiencia interactiva para hotelería y turismo.</div>
+                    </div>
                 </a>
             </div>
         </section>
 
-        <!-- BLOQUE 3: AUTOMATIZACIÓN, SCRIPTS & BASE DE DATOS -->
+        <!-- BLOQUE 3: AUTOMATIZACIÓN EXPLICADA DE FORMA SIMPLE Y PRÁCTICA -->
         <section class="section-block">
             <div class="section-title-wrap">
                 <span class="section-tag-bullet"></span>
-                <span class="section-title" id="t_sec3_title">3. Automatización, Datos & Programación</span>
+                <span class="section-title" id="t_sec3_title">3. Automatizaciones & Soluciones de Datos</span>
             </div>
 
             <div class="tech-services-grid">
+                <!-- SERVICIO 1 -->
                 <div class="tech-box">
-                    <span class="tech-badge">Python / Colab</span>
-                    <span class="tech-title">Scripts & Automatización</span>
-                    <span class="tech-desc">Bots, scrapers y tareas automáticas para ahorrar tiempo a tu equipo.</span>
+                    <span class="tech-badge" id="t_aut1_badge">Ahorro de Tiempo</span>
+                    <span class="tech-title" id="t_aut1_title">Tareas Repetitivas en Piloto Automático</span>
+                    <span class="tech-desc" id="t_aut1_desc">Si en tu negocio haces lo mismo todos los días a mano, creamos un sistema que lo haga solo en segundos.</span>
                 </div>
 
+                <!-- SERVICIO 2 -->
                 <div class="tech-box">
-                    <span class="tech-badge">PowerShell / CLI</span>
-                    <span class="tech-title">Scripts de Sistema</span>
-                    <span class="tech-desc">Automatización de carpetas, procesamiento de archivos y rutinas de backup.</span>
+                    <span class="tech-badge" id="t_aut2_badge">Organización</span>
+                    <span class="tech-title" id="t_aut2_title">Ordenar y Limpiar tus Listas de Clientes</span>
+                    <span class="tech-desc" id="t_aut2_desc">¿Tus Excel o bases están desordenados? Eliminamos números duplicados y organizamos tus contactos para WhatsApp.</span>
                 </div>
 
+                <!-- SERVICIO 3 -->
                 <div class="tech-box">
-                    <span class="tech-badge">Excel / SQL / CSV</span>
-                    <span class="tech-title">Limpieza de Bases de Datos</span>
-                    <span class="tech-desc">Normalización de listas de clientes, eliminación de duplicados y filtros.</span>
+                    <span class="tech-badge" id="t_aut3_badge">Archivos</span>
+                    <span class="tech-title" id="t_aut3_title">Conversión de Archivos por Lotes</span>
+                    <span class="tech-desc" id="t_aut3_desc">Pasa cientos de comprobantes, imágenes o PDFs a planillas de Excel al instante, sin cargar dato por dato.</span>
                 </div>
 
+                <!-- SERVICIO 4 -->
                 <div class="tech-box">
-                    <span class="tech-badge">Archivos & Formatos</span>
-                    <span class="tech-title">Conversión Masiva</span>
-                    <span class="tech-desc">Transformación de datos, PDFs, JSON, XML y sincronización para PyMEs.</span>
+                    <span class="tech-badge" id="t_aut4_badge">Avisos & Alertas</span>
+                    <span class="tech-title" id="t_aut4_title">Envío Automático de Avisos y Reportes</span>
+                    <span class="tech-desc" id="t_aut4_desc">Avisos de pago, recordatorios de citas o resúmenes de ventas enviados por mensaje directo a quien corresponda.</span>
                 </div>
             </div>
         </section>
@@ -984,7 +1009,7 @@
                 <span style="color: var(--brand-pink);">✦</span>
                 <span id="uiFooterBadge">DISEÑO & SOFTWARE</span>
             </div>
-            <span class="footer-legal">© 2026 1111 Gráfica · Todos los derechos reservados</span>
+            <span class="footer-legal" id="uiFooterLegal">© 2026 1111 Gráfica · Todos los derechos reservados</span>
         </footer>
 
     </main>
@@ -993,16 +1018,16 @@
     <div class="modal-backdrop" id="galleryModal" onclick="closeOnBackdrop(event, 'galleryModal')">
         <div class="modal-box">
             <div class="modal-header">
-                <h3 class="modal-title">Galería de Trabajos</h3>
+                <h3 class="modal-title" id="m_title">Galería de Trabajos</h3>
                 <button type="button" class="btn-close-modal" onclick="closeModal('galleryModal')">✕</button>
             </div>
-            <p style="font-size:0.82rem; color:var(--text-muted);">
+            <p style="font-size:0.82rem; color:var(--text-muted);" id="m_subtitle">
                 Proyectos reales de branding, cartelería e impresiones. Tocá cualquier foto para ampliarla:
             </p>
 
             <div class="gallery-grid-dynamic" id="dynamicGalleryGrid"></div>
 
-            <a href="https://www.instagram.com/1111.grafica" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-deep) 100%); color: #FFFFFF; font-size: 0.88rem; font-weight: 800; text-align: center; text-decoration: none; padding: 12px; border-radius: 14px;">
+            <a href="https://www.instagram.com/1111.grafica" target="_blank" rel="noopener noreferrer" id="m_btn_ig" style="background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-deep) 100%); color: #FFFFFF; font-size: 0.88rem; font-weight: 800; text-align: center; text-decoration: none; padding: 12px; border-radius: 14px;">
                 Ver más en Instagram ↗
             </a>
         </div>
@@ -1096,7 +1121,7 @@
             }
         });
 
-        // TRADUCCIONES
+        // TRADUCCIONES COMPLETAS (TODO EL SITIO + MODAL + AUTOMATIZACIÓN AMIGABLE)
         const TRANSLATIONS = {
             es: {
                 langHint: "🌐 Idioma",
@@ -1106,78 +1131,219 @@
                 subtitle: "Identidad visual, catálogos web interactivos y herramientas de software a medida para potenciar tu empresa.",
                 sec1: "1. Diseño Gráfico & Identidad Visual",
                 gal_title: "Galería de Trabajos & Marcas",
+                gal_badge: "50 Fotos",
                 gal_desc: "Explorá cartelería, vinilos, packaging y aplicaciones de marca",
                 pdf_title: "Portfolio Corporativo DGI",
                 pdf_desc: "Descargá y mirá logofolio, branding, packaging y manuales",
+                
                 sec2: "2. Páginas Web & Reemplazo de Linktree",
-                sec3: "3. Automatización, Datos & Programación",
+                wb1_tag: "Web Oficial",
+                wb1_desc: "Sitio web completo & reservas restaurante.",
+                wb2_tag: "Web Hotel",
+                wb2_desc: "Web oficial de lujo en Copacabana.",
+                wb3_tag: "Bio-Link",
+                wb3_desc: "Carta digital interactiva y enlaces directos.",
+                wb4_tag: "Bio-Link",
+                wb4_desc: "Catálogo de servicios, precios y turnos online.",
+                wb5_tag: "Bio-Link",
+                wb5_desc: "Catálogo industrial y contacto para clientes.",
+                wb6_tag: "Bio-Link",
+                wb6_desc: "Experiencia interactiva para hotelería y turismo.",
+
+                sec3: "3. Automatizaciones & Soluciones de Datos",
+                aut1_badge: "Ahorro de Tiempo",
+                aut1_title: "Tareas Repetitivas en Piloto Automático",
+                aut1_desc: "Si en tu negocio haces lo mismo todos los días a mano, creamos un sistema que lo haga solo en segundos.",
+                aut2_badge: "Organización",
+                aut2_title: "Ordenar y Limpiar tus Listas de Clientes",
+                aut2_desc: "¿Tus Excel o bases están desordenados? Eliminamos números duplicados y organizamos tus contactos para WhatsApp.",
+                aut3_badge: "Archivos",
+                aut3_title: "Conversión de Archivos por Lotes",
+                aut3_desc: "Pasa cientos de comprobantes, imágenes o PDFs a planillas de Excel al instante, sin cargar dato por dato.",
+                aut4_badge: "Avisos & Alertas",
+                aut4_title: "Envío Automático de Avisos y Reportes",
+                aut4_desc: "Avisos de pago, recordatorios de citas o resúmenes de ventas enviados por mensaje directo a quien corresponda.",
+
                 btn_cta: "Cotizar Proyecto por WhatsApp ↗",
                 back_hub: "← Ver Hub Oficial de 1111 Gráfica",
                 footer_badge: "DISEÑO & SOFTWARE",
-                wsp_msg: "¡Hola! Me contacto desde la sección de Diseño y Software para cotizar un proyecto."
+                footer_legal: "© 2026 1111 Gráfica · Todos los derechos reservados",
+                wsp_msg: "¡Hola! Me contacto desde la sección de Diseño y Software para cotizar un proyecto.",
+
+                m_title: "Galería de Trabajos",
+                m_subtitle: "Proyectos reales de branding, cartelería e impresiones. Tocá cualquier foto para ampliarla:",
+                m_btn_ig: "Ver más en Instagram ↗"
             },
             pt: {
                 langHint: "🌐 Idioma",
                 badge: "Design Gráfico & Soluções Digitais",
                 title_prefix: "Design & ",
                 title_highlight: "Tecnologia",
-                subtitle: "Identidade visual, sites interativos e automações de software para sua empresa.",
+                subtitle: "Identidade visual, sites interativos e ferramentas de automação para acelerar sua empresa.",
                 sec1: "1. Design Gráfico & Identidade Visual",
                 gal_title: "Galeria de Projetos & Marcas",
+                gal_badge: "50 Fotos",
                 gal_desc: "Explore sinalização, adesivos, embalagens e branding",
                 pdf_title: "Portfólio Corporativo DGI",
                 pdf_desc: "Veja logofólio, branding, embalagens e manuais",
+                
                 sec2: "2. Sites & Substituição de Linktree",
-                sec3: "3. Automação, Dados & Programação",
+                wb1_tag: "Site Oficial",
+                wb1_desc: "Site completo & reservas para restaurante.",
+                wb2_tag: "Site Hotel",
+                wb2_desc: "Site oficial de luxo em Copacabana.",
+                wb3_tag: "Bio-Link",
+                wb3_desc: "Cardápio digital interativo e links diretos.",
+                wb4_tag: "Bio-Link",
+                wb4_desc: "Catálogo de serviços, valores e agendamentos online.",
+                wb5_tag: "Bio-Link",
+                wb5_desc: "Catálogo industrial e atendimento a clientes.",
+                wb6_tag: "Bio-Link",
+                wb6_desc: "Experiência interativa para hotelaria e turismo.",
+
+                sec3: "3. Automação & Soluções de Dados",
+                aut1_badge: "Economia de Tempo",
+                aut1_title: "Tarefas Repetitivas no Piloto Automático",
+                aut1_desc: "Se você faz a mesma tarefa manual todo dia, criamos um sistema que faz tudo sozinho em segundos.",
+                aut2_badge: "Organização",
+                aut2_title: "Limpeza e Organização de Clientes",
+                aut2_desc: "Planilhas confusas? Eliminamos contatos duplicados e organizamos suas listas prontas para o WhatsApp.",
+                aut3_badge: "Arquivos",
+                aut3_title: "Conversão de Arquivos em Massa",
+                aut3_desc: "Converta centenas de notas, fotos ou PDFs em planilhas Excel em segundos, sem digitar um por um.",
+                aut4_badge: "Avisos & Alertas",
+                aut4_title: "Envio Automático de Mensagens e Relatórios",
+                aut4_desc: "Lembretes de agendamento, avisos de pagamento e relatórios enviados automaticamente para seus clientes.",
+
                 btn_cta: "Solicitar Orçamento no WhatsApp ↗",
                 back_hub: "← Ver Hub Oficial da 1111 Gráfica",
                 footer_badge: "DESIGN & SOFTWARE",
-                wsp_msg: "Olá! Entro em contato pela seção de Design e Software para solicitar um orçamento."
+                footer_legal: "© 2026 1111 Gráfica · Todos os direitos reservados",
+                wsp_msg: "Olá! Entro em contato pela seção de Design e Software para solicitar um orçamento.",
+
+                m_title: "Galeria de Projetos",
+                m_subtitle: "Projetos reais de marcas, comunicação visual e impressos. Toque em qualquer foto para ampliar:",
+                m_btn_ig: "Ver mais no Instagram ↗"
             },
             en: {
                 langHint: "🌐 Language",
                 badge: "Graphic Design & Digital Solutions",
                 title_prefix: "Design & ",
                 title_highlight: "Technology",
-                subtitle: "Visual branding, high-end interactive websites, and tailored data tools for your business.",
+                subtitle: "Visual branding, interactive web links, and tailored automation tools to empower your business.",
                 sec1: "1. Graphic Design & Branding",
                 gal_title: "Branding & Print Portfolio",
-                gal_desc: "Explore signage, decals, packaging, and visual identity",
+                gal_badge: "50 Photos",
+                gal_desc: "Explore signage, decals, packaging, and brand identities",
                 pdf_title: "Corporate Portfolio (PDF)",
                 pdf_desc: "Download full logo showcase, brand identity and packaging",
-                sec2: "2. Websites & Interactive Links",
-                sec3: "3. Automation, Data & Software",
+                
+                sec2: "2. Websites & Linktree Replacements",
+                wb1_tag: "Official Web",
+                wb1_desc: "Complete restaurant website & table booking.",
+                wb2_tag: "Hotel Web",
+                wb2_desc: "Luxury hotel website in Copacabana.",
+                wb3_tag: "Bio-Link",
+                wb3_desc: "Interactive digital menu & direct links.",
+                wb4_tag: "Bio-Link",
+                wb4_desc: "Service catalog, pricing & online bookings.",
+                wb5_tag: "Bio-Link",
+                wb5_desc: "Industrial equipment catalog & inquiries.",
+                wb6_tag: "Bio-Link",
+                wb6_desc: "Interactive guest experience for hospitality.",
+
+                sec3: "3. Automation & Practical Data Solutions",
+                aut1_badge: "Save Time",
+                aut1_title: "Repetitive Tasks on Autopilot",
+                aut1_desc: "If your team repeats the same manual tasks daily, we build automated tools that execute them in seconds.",
+                aut2_badge: "Organization",
+                aut2_title: "Customer List Cleaning & Formatting",
+                aut2_desc: "Messy spreadsheets? We filter duplicates and normalize phone numbers for fast WhatsApp outreach.",
+                aut3_badge: "File Conversion",
+                aut3_title: "Bulk Document & Data Conversion",
+                aut3_desc: "Turn hundreds of invoices, PDFs, or receipts directly into clean Excel sheets without manual typing.",
+                aut4_badge: "Alerts & Reports",
+                aut4_title: "Automated Notifications & Reports",
+                aut4_desc: "Instant payment confirmations, appointment reminders, and sales summaries sent straight to clients.",
+
                 btn_cta: "Get a Project Quote on WhatsApp ↗",
                 back_hub: "← Go back to 1111 Gráfica Hub",
                 footer_badge: "DESIGN & SOFTWARE",
-                wsp_msg: "Hello! I am contacting you regarding your Design and Software services to get a quote."
+                footer_legal: "© 2026 1111 Gráfica · All rights reserved",
+                wsp_msg: "Hello! I am contacting you regarding your Design and Software services to get a quote.",
+
+                m_title: "Work Gallery",
+                m_subtitle: "Real branding, signage, and print production projects. Tap any image to enlarge:",
+                m_btn_ig: "See more on Instagram ↗"
             }
         };
 
         function setLanguage(lang) {
             const data = TRANSLATIONS[lang] || TRANSLATIONS.es;
 
+            // Cabecera
             document.getElementById('uiLangHint').innerText = data.langHint;
             document.getElementById('uiBadge').innerText = data.badge;
             document.querySelector('.brand-title').innerHTML = `${data.title_prefix}<span>${data.title_highlight}</span>`;
             document.getElementById('uiSubtitle').innerText = data.subtitle;
 
+            // Sección 1
             document.getElementById('t_sec1_title').innerText = data.sec1;
             document.getElementById('t_gal_title').innerText = data.gal_title;
+            document.getElementById('t_gal_badge').innerText = data.gal_badge;
             document.getElementById('t_gal_desc').innerText = data.gal_desc;
             document.getElementById('t_pdf_title').innerText = data.pdf_title;
             document.getElementById('t_pdf_desc').innerText = data.pdf_desc;
 
+            // Sección 2 (Webs & Bio-links)
             document.getElementById('t_sec2_title').innerText = data.sec2;
-            document.getElementById('t_sec3_title').innerText = data.sec3;
+            document.getElementById('t_wb1_tag').innerText = data.wb1_tag;
+            document.getElementById('t_wb1_desc').innerText = data.wb1_desc;
+            document.getElementById('t_wb2_tag').innerText = data.wb2_tag;
+            document.getElementById('t_wb2_desc').innerText = data.wb2_desc;
+            document.getElementById('t_wb3_tag').innerText = data.wb3_tag;
+            document.getElementById('t_wb3_desc').innerText = data.wb3_desc;
+            document.getElementById('t_wb4_tag').innerText = data.wb4_tag;
+            document.getElementById('t_wb4_desc').innerText = data.wb4_desc;
+            document.getElementById('t_wb5_tag').innerText = data.wb5_tag;
+            document.getElementById('t_wb5_desc').innerText = data.wb5_desc;
+            document.getElementById('t_wb6_tag').innerText = data.wb6_tag;
+            document.getElementById('t_wb6_desc').innerText = data.wb6_desc;
 
+            // Sección 3 (Automatización)
+            document.getElementById('t_sec3_title').innerText = data.sec3;
+            document.getElementById('t_aut1_badge').innerText = data.aut1_badge;
+            document.getElementById('t_aut1_title').innerText = data.aut1_title;
+            document.getElementById('t_aut1_desc').innerText = data.aut1_desc;
+
+            document.getElementById('t_aut2_badge').innerText = data.aut2_badge;
+            document.getElementById('t_aut2_title').innerText = data.aut2_title;
+            document.getElementById('t_aut2_desc').innerText = data.aut2_desc;
+
+            document.getElementById('t_aut3_badge').innerText = data.aut3_badge;
+            document.getElementById('t_aut3_title').innerText = data.aut3_title;
+            document.getElementById('t_aut3_desc').innerText = data.aut3_desc;
+
+            document.getElementById('t_aut4_badge').innerText = data.aut4_badge;
+            document.getElementById('t_aut4_title').innerText = data.aut4_title;
+            document.getElementById('t_aut4_desc').innerText = data.aut4_desc;
+
+            // Botones y Footer
             document.getElementById('uiBtnCta').innerText = data.btn_cta;
             document.getElementById('uiBackHub').innerText = data.back_hub;
             document.getElementById('uiFooterBadge').innerText = data.footer_badge;
+            document.getElementById('uiFooterLegal').innerText = data.footer_legal;
 
+            // Modal
+            document.getElementById('m_title').innerText = data.m_title;
+            document.getElementById('m_subtitle').innerText = data.m_subtitle;
+            document.getElementById('m_btn_ig').innerText = data.m_btn_ig;
+
+            // WhatsApp link
             const wspBase = "https://wa.me/5491131933611?text=";
             document.getElementById('btnWspCta').href = wspBase + encodeURIComponent(data.wsp_msg);
 
+            // Botones activos de idioma
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             if (lang === 'es') document.getElementById('btnLangEs').classList.add('active');
             if (lang === 'pt') document.getElementById('btnLangPt').classList.add('active');
