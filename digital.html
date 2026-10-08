@@ -19,25 +19,25 @@
     <style>
         :root {
             --brand-green: #A0D18F;
-            --brand-green-deep: #5E9B4A;
-            --brand-green-text: #2A561B;
+            --brand-green-deep: #417B2E;
+            --brand-green-text: #193D0F;
             --brand-pink: #E989B7;
             --brand-pink-glow: rgba(233, 137, 183, 0.45);
-            --brand-pink-deep: #B43C78;
+            --brand-pink-deep: #A92667;
             --brand-white: #FFFFFF;
 
-            --bg-base: #F6FAF4;
-            --bg-card: rgba(255, 255, 255, 0.92);
+            --bg-base: #F4F8F1;
+            --bg-card: #FFFFFF;
             --bg-card-hover: #FFFFFF;
-            --border-card: rgba(160, 209, 143, 0.45);
-            --border-card-hover: rgba(233, 137, 183, 0.85);
+            --border-card: rgba(140, 195, 120, 0.65);
+            --border-card-hover: rgba(233, 137, 183, 0.95);
 
-            --text-main: #1F2E1B;
-            --text-muted: #5C6E56;
-            --text-light: #7E9378;
+            --text-main: #142211;
+            --text-muted: #4D6048;
+            --text-light: #6F846A;
 
-            --shadow-card: 0 10px 26px -4px rgba(100, 145, 85, 0.12), 0 3px 10px rgba(0, 0, 0, 0.04);
-            --shadow-hover: 0 16px 36px -6px rgba(233, 137, 183, 0.28), 0 4px 12px rgba(160, 209, 143, 0.2);
+            --shadow-card: 0 4px 16px -2px rgba(60, 105, 45, 0.10), 0 2px 6px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 14px 32px -4px rgba(233, 137, 183, 0.28), 0 4px 12px rgba(160, 209, 143, 0.2);
             --spring: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -61,13 +61,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 18px 16px 36px;
+            padding: 16px 14px 40px;
             overflow-x: hidden;
             position: relative;
             letter-spacing: -0.015em;
         }
 
-        /* FONDOS AMBIENTALES */
+        /* FONDOS AMBIENTALES: OPACIDAD VIVA ORIGINAL RESTAURADA */
         .ambient-canvas {
             position: fixed;
             top: 0;
@@ -75,7 +75,7 @@
             width: 100vw;
             height: 100vh;
             z-index: -2;
-            background: radial-gradient(circle at 50% 15%, #FFFFFF 0%, #F5FAF1 45%, #EBF4E7 100%);
+            background: radial-gradient(circle at 50% 12%, #FFFFFF 0%, #F3F8F0 45%, #E6F1E1 100%);
             overflow: hidden;
             pointer-events: none;
         }
@@ -87,20 +87,21 @@
             transform: translateX(-50%);
             width: 780px;
             height: 650px;
-            background: radial-gradient(ellipse at 50% 30%, rgba(233, 137, 183, 0.30) 0%, rgba(160, 209, 143, 0.25) 45%, transparent 75%);
+            background: radial-gradient(ellipse at 50% 30%, rgba(233, 137, 183, 0.28) 0%, rgba(160, 209, 143, 0.22) 45%, transparent 75%);
             filter: blur(80px);
         }
 
         .summer-sun-glow {
             position: absolute;
-            bottom: -150px;
+            bottom: -140px;
             right: -100px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 237, 160, 0.35) 0%, rgba(160, 209, 143, 0.15) 50%, transparent 80%);
-            filter: blur(90px);
+            width: 480px;
+            height: 480px;
+            background: radial-gradient(circle, rgba(255, 237, 160, 0.32) 0%, rgba(160, 209, 143, 0.15) 50%, transparent 80%);
+            filter: blur(85px);
         }
 
+        /* TEXTURA CON PRESENCIA Y ROTACIÓN ÓPTIMA */
         .stencil-pattern {
             position: absolute;
             top: -20%;
@@ -120,13 +121,13 @@
             100% { background-position: 600px 600px; }
         }
 
-        /* CONTENEDOR PRINCIPAL */
+        /* CONTENEDOR PRINCIPAL CON ESPACIO DE RESPIRACIÓN REAL */
         .hub-container {
             width: 100%;
             max-width: 480px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 24px; /* Separación marcada entre bloques */
             z-index: 2;
         }
 
@@ -135,12 +136,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.80);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
-            border: 1px solid var(--border-card);
+            border: 1.5px solid var(--border-card);
             border-radius: 999px;
             padding: 4px 6px;
-            box-shadow: 0 4px 14px rgba(100, 145, 85, 0.08);
+            box-shadow: 0 3px 12px rgba(60, 105, 45, 0.08);
         }
 
         .lang-badge-hint {
@@ -149,7 +150,7 @@
             color: var(--brand-green-text);
             text-transform: uppercase;
             padding-left: 10px;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
         }
 
         .lang-switch-pills {
@@ -167,7 +168,7 @@
             font-weight: 800;
             color: var(--text-muted);
             cursor: pointer;
-            transition: all 0.25s var(--spring);
+            transition: all 0.2s var(--spring);
         }
 
         .lang-btn.active {
@@ -176,50 +177,53 @@
             box-shadow: 0 2px 10px var(--brand-pink-glow);
         }
 
-        /* CABECERA */
+        /* CABECERA CON ALTO CONTRASTE */
         .brand-header {
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 8px;
+            padding: 4px 0 2px;
         }
 
         .logo-wrapper {
-            width: 100px;
-            height: 100px;
+            width: 92px;
+            height: 92px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: drop-shadow(0 10px 20px rgba(160, 209, 143, 0.45));
-            border: 3px solid #FFFFFF;
+            filter: drop-shadow(0 10px 20px rgba(78, 138, 58, 0.25));
+            border: 3.5px solid #FFFFFF;
             animation: softCoinFlip 7s infinite ease-in-out;
         }
 
         @keyframes softCoinFlip {
             0%, 50%, 100% { transform: rotateY(0deg); }
-            25% { transform: rotateY(20deg); }
-            75% { transform: rotateY(-20deg); }
+            25% { transform: rotateY(18deg); }
+            75% { transform: rotateY(-18deg); }
         }
 
         .brand-badge {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
             font-weight: 800;
-            padding: 3px 10px;
+            padding: 3px 12px;
             border-radius: 999px;
-            background: rgba(233, 137, 183, 0.2);
+            background: #FCE7F3;
             color: var(--brand-pink-deep);
-            border: 1px solid rgba(233, 137, 183, 0.45);
+            border: 1.5px solid #F472B6;
             text-transform: uppercase;
+            letter-spacing: 0.03em;
+            box-shadow: 0 2px 6px rgba(233, 137, 183, 0.15);
         }
 
         .brand-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.60rem;
+            font-size: 1.65rem;
             font-weight: 900;
-            line-height: 1.15;
+            line-height: 1.1;
             color: var(--text-main);
         }
         .brand-title span {
@@ -227,42 +231,53 @@
         }
 
         .brand-subtitle {
-            font-size: 0.84rem;
-            line-height: 1.45;
+            font-size: 0.83rem;
+            line-height: 1.4;
             color: var(--text-muted);
             font-weight: 600;
             max-width: 95%;
         }
 
-        /* SECCIONES Y TITULOS DE BLOQUE */
+        /* =========================================================
+           ENCABEZADOS DE SECCIÓN: IMPACTANTES Y DESTACADOS
+           ========================================================= */
         .section-block {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 11px; /* Espacio limpio entre el título y las tarjetas */
         }
 
-        .section-title-wrap {
+        .section-header-banner {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 0 4px;
+            gap: 9px;
+            padding: 7px 12px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #EFF7EC 100%);
+            border: 1.5px solid var(--border-card);
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(60, 105, 45, 0.08);
         }
 
-        .section-tag-bullet {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--brand-pink);
-            flex-shrink: 0;
+        .section-num-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.70rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--brand-pink-deep) 0%, var(--brand-pink) 100%);
+            color: #FFFFFF;
+            padding: 3px 8px;
+            border-radius: 7px;
+            box-shadow: 0 2px 6px var(--brand-pink-glow);
+            letter-spacing: 0.02em;
         }
 
         .section-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.92rem;
-            font-weight: 800;
+            font-size: 0.94rem;
+            font-weight: 900;
             color: var(--brand-green-text);
             text-transform: uppercase;
             letter-spacing: 0.04em;
+            flex: 1;
         }
 
         /* TARJETAS INTERACTIVAS GENERALES */
@@ -271,16 +286,14 @@
             align-items: center;
             justify-content: space-between;
             gap: 14px;
-            padding: 15px 18px;
+            padding: 14px 17px;
             background: var(--bg-card);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
             border: 1.5px solid var(--border-card);
-            border-radius: 20px;
+            border-radius: 18px;
             text-decoration: none;
             color: var(--text-main);
             box-shadow: var(--shadow-card);
-            transition: all 0.28s var(--spring);
+            transition: all 0.25s var(--spring);
             cursor: pointer;
             user-select: none;
         }
@@ -296,26 +309,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 46px;
-            height: 46px;
-            min-width: 46px;
-            border-radius: 14px;
-            background: rgba(160, 209, 143, 0.2);
-            border: 1.5px solid rgba(160, 209, 143, 0.45);
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 13px;
+            background: rgba(160, 209, 143, 0.28);
+            border: 1.5px solid rgba(160, 209, 143, 0.6);
             color: var(--brand-green-text);
-            transition: all 0.25s ease;
+            transition: all 0.22s ease;
         }
 
         .btn-card:hover .icon-box {
             background: var(--brand-pink);
             color: #FFFFFF;
             border-color: var(--brand-pink);
-            transform: rotate(-4deg) scale(1.04);
+            transform: scale(1.05);
         }
 
         .icon-box svg {
-            width: 22px;
-            height: 22px;
+            width: 21px;
+            height: 21px;
         }
 
         .btn-info {
@@ -338,7 +351,7 @@
             font-size: 1.02rem;
             font-weight: 800;
             color: var(--text-main);
-            line-height: 1.2;
+            line-height: 1.15;
         }
 
         .badge-pill {
@@ -347,9 +360,9 @@
             font-weight: 800;
             padding: 2px 8px;
             border-radius: 999px;
-            background: rgba(233, 137, 183, 0.2);
+            background: #FCE7F3;
             color: var(--brand-pink-deep);
-            border: 1px solid rgba(233, 137, 183, 0.5);
+            border: 1px solid #F472B6;
             text-transform: uppercase;
         }
 
@@ -368,10 +381,10 @@
             height: 30px;
             min-width: 30px;
             border-radius: 50%;
-            background: rgba(160, 209, 143, 0.15);
+            background: rgba(160, 209, 143, 0.2);
             color: var(--brand-green-deep);
             border: 1px solid var(--border-card);
-            transition: all 0.25s ease;
+            transition: all 0.22s ease;
         }
 
         .btn-card:hover .arrow-box {
@@ -382,16 +395,18 @@
         }
 
         .arrow-box svg {
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
             stroke-width: 2.8;
         }
 
-        /* CUADRÍCULA COMPACTA PARA WEBS Y BIO-LINKS (AHORRO DE ESPACIO VERTICAL) */
+        /* =========================================================
+           CUADRÍCULA COMPACTA DE WEBS Y BIO-LINKS
+           ========================================================= */
         .web-compact-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 9px;
+            gap: 10px;
         }
 
         .compact-card {
@@ -405,15 +420,34 @@
             text-decoration: none;
             color: var(--text-main);
             box-shadow: var(--shadow-card);
-            transition: all 0.25s var(--spring);
-            min-height: 120px;
+            transition: all 0.22s var(--spring);
+            min-height: 114px;
         }
 
         .compact-card:hover {
-            background: #FFFFFF;
             border-color: var(--brand-pink);
             transform: translateY(-2px);
             box-shadow: var(--shadow-hover);
+        }
+
+        /* PIEZA DESTACADA CON ALTO CONTRASTE: BLACK CENTER */
+        .compact-card.featured-blackcenter {
+            grid-column: span 2;
+            min-height: auto;
+            flex-direction: row;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background: linear-gradient(135deg, #12151D 0%, #1A1F2B 100%);
+            border: 1.8px solid #FFC700;
+            color: #FFFFFF;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 16px rgba(255, 199, 0, 0.2);
+        }
+
+        .compact-card.featured-blackcenter:hover {
+            border-color: #FFFFFF;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 22px rgba(255, 199, 0, 0.35);
+            transform: translateY(-2px);
         }
 
         .compact-top {
@@ -423,25 +457,37 @@
             margin-bottom: 6px;
         }
 
+        /* IDENTIFICACIÓN VISUAL FUERTE (WEB VS BIO-LINK) */
         .compact-badge-type {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.60rem;
+            font-size: 0.65rem;
             font-weight: 800;
-            padding: 2px 6px;
+            padding: 3px 8px;
             border-radius: 6px;
-            background: rgba(160, 209, 143, 0.25);
-            color: var(--brand-green-text);
             text-transform: uppercase;
+            letter-spacing: 0.03em;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            background: #E0F2FE;
+            color: #0369A1;
+            border: 1.5px solid #7DD3FC;
         }
 
         .compact-badge-type.real-web {
-            background: rgba(233, 137, 183, 0.22);
-            color: var(--brand-pink-deep);
-            border: 1px solid rgba(233, 137, 183, 0.45);
+            background: #FCE7F3;
+            color: #9D174D;
+            border: 1.5px solid #F472B6;
+        }
+
+        .compact-badge-type.gt4-gold {
+            background: rgba(255, 199, 0, 0.15);
+            color: #FFC700;
+            border: 1.5px solid #FFC700;
         }
 
         .compact-arrow {
-            font-size: 0.78rem;
+            font-size: 0.85rem;
             font-weight: 900;
             color: var(--brand-green-deep);
             transition: transform 0.2s ease, color 0.2s ease;
@@ -454,21 +500,23 @@
 
         .compact-name {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.90rem;
+            font-size: 0.92rem;
             font-weight: 800;
             line-height: 1.2;
             color: var(--text-main);
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
         .compact-desc {
-            font-size: 0.70rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
             line-height: 1.3;
             font-weight: 600;
         }
 
-        /* GRILLA DE SERVICIOS TÉCNICOS EXPLICADOS FÁCIL */
+        /* =========================================================
+           SECCIÓN AUTOMATIZACIONES CON SOLAPAS LATERALES DE CONTRASTE
+           ========================================================= */
         .tech-services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -478,43 +526,50 @@
         .tech-box {
             background: var(--bg-card);
             border: 1.5px solid var(--border-card);
-            border-radius: 16px;
-            padding: 13px 14px;
+            border-left: 4px solid var(--brand-green-deep);
+            border-radius: 15px;
+            padding: 12px 13px;
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            box-shadow: 0 4px 12px rgba(100, 145, 85, 0.08);
-            transition: all 0.25s var(--spring);
+            gap: 4px;
+            box-shadow: 0 4px 12px rgba(60, 105, 45, 0.08);
+            transition: all 0.22s var(--spring);
+        }
+
+        .tech-box.alt-border {
+            border-left-color: var(--brand-pink-deep);
         }
 
         .tech-box:hover {
             border-color: var(--brand-pink);
+            border-left-color: var(--brand-pink);
             transform: translateY(-2px);
-            background: #FFFFFF;
+            box-shadow: var(--shadow-hover);
         }
 
         .tech-badge {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.64rem;
+            font-size: 0.62rem;
             font-weight: 800;
             color: var(--brand-green-text);
-            background: rgba(160, 209, 143, 0.25);
+            background: #E4F4DC;
+            border: 1px solid #A8DC98;
             padding: 2px 7px;
-            border-radius: 6px;
+            border-radius: 5px;
             display: inline-block;
             width: fit-content;
         }
 
         .tech-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             font-weight: 800;
             color: var(--text-main);
             line-height: 1.25;
         }
 
         .tech-desc {
-            font-size: 0.72rem;
+            font-size: 0.71rem;
             color: var(--text-muted);
             font-weight: 600;
             line-height: 1.35;
@@ -522,7 +577,7 @@
 
         /* BOTÓN DESTACADO WHATSAPP (ÍCONO EN 32PX) */
         .cta-box-wsp {
-            margin-top: 6px;
+            margin-top: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -536,12 +591,12 @@
             font-weight: 800;
             text-decoration: none;
             box-shadow: 0 10px 24px var(--brand-pink-glow);
-            transition: all 0.28s var(--spring);
+            transition: all 0.25s var(--spring);
         }
 
         .cta-box-wsp:hover {
             transform: translateY(-2px) scale(1.01);
-            box-shadow: 0 14px 30px rgba(180, 60, 120, 0.4);
+            box-shadow: 0 14px 30px rgba(169, 38, 103, 0.45);
         }
 
         .cta-box-wsp svg {
@@ -561,33 +616,34 @@
             gap: 8px;
             padding: 12px 18px;
             border-radius: 16px;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.95);
             border: 1.5px solid var(--border-card);
             color: var(--brand-green-text);
             font-family: 'Outfit', sans-serif;
             font-size: 0.86rem;
             font-weight: 800;
             text-decoration: none;
-            transition: all 0.25s var(--spring);
+            box-shadow: 0 2px 8px rgba(60, 105, 45, 0.06);
+            transition: all 0.22s var(--spring);
         }
 
         .btn-back-hub:hover {
             background: #FFFFFF;
             border-color: var(--brand-green);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         /* MODAL DE GALERÍA */
         .modal-backdrop {
             position: fixed;
             inset: 0;
-            background: rgba(28, 42, 25, 0.70);
+            background: rgba(20, 32, 18, 0.70);
             backdrop-filter: blur(10px);
             z-index: 2000;
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 16px;
+            padding: 14px;
             opacity: 0;
             transition: opacity 0.25s ease;
         }
@@ -600,16 +656,16 @@
         .modal-box {
             background: #FFFFFF;
             border: 2px solid var(--brand-green);
-            border-radius: 26px;
+            border-radius: 24px;
             max-width: 500px;
             width: 100%;
-            max-height: 88vh;
+            max-height: 86vh;
             overflow-y: auto;
-            padding: 22px;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+            padding: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.24);
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
             transform: scale(0.95);
             transition: transform 0.25s var(--spring);
         }
@@ -624,20 +680,20 @@
 
         .modal-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: var(--text-main);
         }
 
         .btn-close-modal {
-            background: rgba(160, 209, 143, 0.2);
+            background: rgba(160, 209, 143, 0.25);
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             color: var(--brand-green-text);
             font-weight: 900;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -662,7 +718,7 @@
 
         .gallery-item-wrap {
             aspect-ratio: 1;
-            border-radius: 14px;
+            border-radius: 12px;
             overflow: hidden;
             border: 1.5px solid var(--border-card);
             cursor: zoom-in;
@@ -672,7 +728,7 @@
         }
 
         .gallery-item-wrap:hover {
-            transform: scale(1.04);
+            transform: scale(1.03);
             border-color: var(--brand-pink);
         }
 
@@ -687,13 +743,13 @@
         .lightbox-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(14, 20, 13, 0.95);
-            backdrop-filter: blur(14px);
+            background: rgba(12, 18, 11, 0.94);
+            backdrop-filter: blur(12px);
             z-index: 5000;
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 16px;
+            padding: 14px;
         }
 
         .lightbox-overlay.active { display: flex; }
@@ -711,9 +767,9 @@
         .lightbox-img-full {
             max-width: 100%;
             max-height: 80vh;
-            border-radius: 18px;
-            border: 2.5px solid #FFFFFF;
-            box-shadow: 0 24px 70px rgba(0,0,0,0.6);
+            border-radius: 16px;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
             object-fit: contain;
         }
 
@@ -721,14 +777,14 @@
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.22);
-            backdrop-filter: blur(10px);
-            border: 1.5px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
             color: #FFFFFF;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 900;
             display: flex;
             align-items: center;
@@ -738,61 +794,63 @@
         }
 
         .lb-nav-btn:hover { background: var(--brand-pink); }
-        .lb-prev { left: 16px; }
-        .lb-next { right: 16px; }
+        .lb-prev { left: 14px; }
+        .lb-next { right: 14px; }
 
         .lb-close-btn {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
+            top: 18px;
+            right: 18px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.22);
             border: 1.5px solid #FFFFFF;
             color: #FFFFFF;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
             z-index: 5020;
         }
 
         /* FOOTER */
         .hub-footer {
-            margin-top: 10px;
+            margin-top: 6px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .footer-badge {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
+            font-size: 0.68rem;
             font-weight: 800;
             color: var(--brand-green-text);
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid var(--border-card);
+            background: rgba(255, 255, 255, 0.92);
+            border: 1.5px solid var(--border-card);
             padding: 5px 14px;
             border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(60, 105, 45, 0.06);
         }
 
         .footer-legal {
-            font-size: 0.70rem;
+            font-size: 0.68rem;
             color: var(--text-light);
             font-weight: 600;
         }
 
         @media (max-width: 480px) {
             .gallery-grid-dynamic { grid-template-columns: repeat(2, 1fr); }
-            .lb-prev { left: 8px; }
-            .lb-next { right: 8px; }
+            .lb-prev { left: 6px; }
+            .lb-next { right: 6px; }
+            .compact-card.featured-blackcenter { flex-direction: column; align-items: flex-start; gap: 8px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- FONDO AMBIENTAL -->
+    <!-- FONDO AMBIENTAL: TEXTURA ORIGINAL CON FUERZA Y PRESENCIA -->
     <div class="ambient-canvas">
         <div class="spring-spotlight"></div>
         <div class="summer-sun-glow"></div>
@@ -833,11 +891,11 @@
             </p>
         </header>
 
-        <!-- BLOQUE 1: DISEÑO GRÁFICO (FOTOS + PDF) -->
+        <!-- BLOQUE 1: DISEÑO GRÁFICO (RECONOCIBLE EN 1 SEGUNDO) -->
         <section class="section-block">
-            <div class="section-title-wrap">
-                <span class="section-tag-bullet"></span>
-                <span class="section-title" id="t_sec1_title">1. Diseño Gráfico & Identidad Visual</span>
+            <div class="section-header-banner">
+                <span class="section-num-pill">[01]</span>
+                <span class="section-title" id="t_sec1_title">Diseño Gráfico & Identidad Visual</span>
             </div>
 
             <!-- BOTÓN A: GALERÍA DE TRABAJOS DE DISEÑO -->
@@ -871,18 +929,30 @@
             </a>
         </section>
 
-        <!-- BLOQUE 2: PÁGINAS WEB & BIO-LINKS (EN FORMATO GRILLA COMPACTA 2xFILA) -->
+        <!-- BLOQUE 2: PÁGINAS WEB & BIO-LINKS (CON CONTRASTE DE ALTA GAMA) -->
         <section class="section-block">
-            <div class="section-title-wrap">
-                <span class="section-tag-bullet"></span>
-                <span class="section-title" id="t_sec2_title">2. Páginas Web & Reemplazo de Linktree</span>
+            <div class="section-header-banner">
+                <span class="section-num-pill">[02]</span>
+                <span class="section-title" id="t_sec2_title">Sitios Web & Reemplazo de Linktree</span>
             </div>
+
+            <!-- TARJETA DESTACADA SHOWSTOPPER: BLACK CENTER CARS (GT4 OBSIDIAN) -->
+            <a href="https://onceoncegrafica-1111.github.io/blackcenter/" target="_blank" rel="noopener noreferrer" class="compact-card featured-blackcenter">
+                <div class="compact-top" style="margin-bottom:0; flex-shrink:0;">
+                    <span class="compact-badge-type gt4-gold" id="t_bc_tag">⚡ BIO-LINK GT4</span>
+                </div>
+                <div style="flex:1;">
+                    <div class="compact-name" style="font-size:0.98rem; color:#FFFFFF;">Black Center Cars</div>
+                    <div class="compact-desc" id="t_bc_desc" style="color:#CBD5E1;">Estética vehicular ejecutiva, catálogo interactivo y telemetría de carrera.</div>
+                </div>
+                <span class="compact-arrow" style="font-size:1.15rem; color:#FFC700;">↗</span>
+            </a>
 
             <div class="web-compact-grid">
                 <!-- 1. BALDORIA WEB OFICIAL -->
                 <a href="https://baldoriamadrid.com/" target="_blank" rel="noopener noreferrer" class="compact-card">
                     <div class="compact-top">
-                        <span class="compact-badge-type real-web" id="t_wb1_tag">Web Oficial</span>
+                        <span class="compact-badge-type real-web" id="t_wb1_tag">🌐 SITIO WEB</span>
                         <span class="compact-arrow">↗</span>
                     </div>
                     <div>
@@ -894,7 +964,7 @@
                 <!-- 2. HOTEL MIRAMAR BY WINDSOR -->
                 <a href="https://windsorhoteis.com/hotel/miramar-by-windsor-copacabana/" target="_blank" rel="noopener noreferrer" class="compact-card">
                     <div class="compact-top">
-                        <span class="compact-badge-type real-web" id="t_wb2_tag">Web Hotel</span>
+                        <span class="compact-badge-type real-web" id="t_wb2_tag">🌐 SITIO WEB</span>
                         <span class="compact-arrow">↗</span>
                     </div>
                     <div>
@@ -906,7 +976,7 @@
                 <!-- 3. BALDORIA CARTA INTERACTIVA -->
                 <a href="https://onceoncegrafica-1111.github.io/baldoriamadrid/" target="_blank" rel="noopener noreferrer" class="compact-card">
                     <div class="compact-top">
-                        <span class="compact-badge-type" id="t_wb3_tag">Bio-Link</span>
+                        <span class="compact-badge-type" id="t_wb3_tag">⚡ BIO-LINK</span>
                         <span class="compact-arrow">↗</span>
                     </div>
                     <div>
@@ -918,7 +988,7 @@
                 <!-- 4. PELUQUERÍA ALVEAR -->
                 <a href="https://onceoncegrafica-1111.github.io/peluqueriaalvear/" target="_blank" rel="noopener noreferrer" class="compact-card">
                     <div class="compact-top">
-                        <span class="compact-badge-type" id="t_wb4_tag">Bio-Link</span>
+                        <span class="compact-badge-type" id="t_wb4_tag">⚡ BIO-LINK</span>
                         <span class="compact-arrow">↗</span>
                     </div>
                     <div>
@@ -930,7 +1000,7 @@
                 <!-- 5. FRIMAQ -->
                 <a href="https://onceoncegrafica-1111.github.io/frimaq/" target="_blank" rel="noopener noreferrer" class="compact-card">
                     <div class="compact-top">
-                        <span class="compact-badge-type" id="t_wb5_tag">Bio-Link</span>
+                        <span class="compact-badge-type" id="t_wb5_tag">⚡ BIO-LINK</span>
                         <span class="compact-arrow">↗</span>
                     </div>
                     <div>
@@ -942,7 +1012,7 @@
                 <!-- 6. FOUR SEASONS -->
                 <a href="https://onceoncegrafica-1111.github.io/fourseasonsmx/" target="_blank" rel="noopener noreferrer" class="compact-card">
                     <div class="compact-top">
-                        <span class="compact-badge-type" id="t_wb6_tag">Bio-Link</span>
+                        <span class="compact-badge-type" id="t_wb6_tag">⚡ BIO-LINK</span>
                         <span class="compact-arrow">↗</span>
                     </div>
                     <div>
@@ -953,11 +1023,11 @@
             </div>
         </section>
 
-        <!-- BLOQUE 3: AUTOMATIZACIÓN EXPLICADA DE FORMA SIMPLE Y PRÁCTICA -->
+        <!-- BLOQUE 3: AUTOMATIZACIONES Y SOFTWARE CON BORDES DIFERENCIADOS -->
         <section class="section-block">
-            <div class="section-title-wrap">
-                <span class="section-tag-bullet"></span>
-                <span class="section-title" id="t_sec3_title">3. Automatizaciones & Soluciones de Datos</span>
+            <div class="section-header-banner">
+                <span class="section-num-pill">[03]</span>
+                <span class="section-title" id="t_sec3_title">Automatizaciones & Soluciones de Datos</span>
             </div>
 
             <div class="tech-services-grid">
@@ -969,10 +1039,10 @@
                 </div>
 
                 <!-- SERVICIO 2 -->
-                <div class="tech-box">
-                    <span class="tech-badge" id="t_aut2_badge">Organización</span>
-                    <span class="tech-title" id="t_aut2_title">Ordenar y Limpiar tus Listas de Clientes</span>
-                    <span class="tech-desc" id="t_aut2_desc">¿Tus Excel o bases están desordenados? Eliminamos números duplicados y organizamos tus contactos para WhatsApp.</span>
+                <div class="tech-box alt-border">
+                    <span class="tech-badge" id="t_aut2_badge" style="background:#FCE7F3; color:#9D174D; border-color:#F472B6;">Organización</span>
+                    <span class="tech-title" id="t_aut2_title">Ordenar y Limpiar Listas de Clientes</span>
+                    <span class="tech-desc" id="t_aut2_desc">¿Tus bases están desordenadas? Eliminamos duplicados y organizamos tus contactos listos para WhatsApp.</span>
                 </div>
 
                 <!-- SERVICIO 3 -->
@@ -983,15 +1053,15 @@
                 </div>
 
                 <!-- SERVICIO 4 -->
-                <div class="tech-box">
-                    <span class="tech-badge" id="t_aut4_badge">Avisos & Alertas</span>
+                <div class="tech-box alt-border">
+                    <span class="tech-badge" id="t_aut4_badge" style="background:#FCE7F3; color:#9D174D; border-color:#F472B6;">Avisos & Alertas</span>
                     <span class="tech-title" id="t_aut4_title">Envío Automático de Avisos y Reportes</span>
                     <span class="tech-desc" id="t_aut4_desc">Avisos de pago, recordatorios de citas o resúmenes de ventas enviados por mensaje directo a quien corresponda.</span>
                 </div>
             </div>
         </section>
 
-        <!-- BOTÓN PRINCIPAL WHATSAPP (CON ÍCONO EN 32PX) -->
+        <!-- BOTÓN PRINCIPAL WHATSAPP (ÍCONO EN 32PX) -->
         <a href="https://wa.me/5491131933611?text=%C2%A1Hola!%20Me%20contacto%20desde%20la%20secci%C3%B3n%20de%20Dise%C3%B1o%20y%20Software%20para%20cotizar%20un%20proyecto." target="_blank" rel="noopener noreferrer" class="cta-box-wsp" id="btnWspCta">
             <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
             <span id="uiBtnCta">Cotizar Proyecto por WhatsApp ↗</span>
@@ -1043,7 +1113,7 @@
         <button type="button" class="lb-nav-btn lb-next" onclick="navLightbox(1, event)">›</button>
     </div>
 
-    <!-- JAVASCRIPT: GALERIA, TRADUCCIÓN Y CONTROL -->
+    <!-- JAVASCRIPT: GALERÍA, TRADUCCIONES Y CONTROL -->
     <script>
         const TOTAL_PHOTOS = 50;
         const GITHUB_PHOTOS = Array.from({ length: TOTAL_PHOTOS }, (_, i) => ({
@@ -1121,7 +1191,7 @@
             }
         });
 
-        // TRADUCCIONES COMPLETAS (TODO EL SITIO + MODAL + AUTOMATIZACIÓN AMIGABLE)
+        // DICCIONARIO TRILINGÜE CON ALTO CONTRASTE Y BLACK CENTER
         const TRANSLATIONS = {
             es: {
                 langHint: "🌐 Idioma",
@@ -1129,34 +1199,37 @@
                 title_prefix: "Diseño & ",
                 title_highlight: "Tecnología",
                 subtitle: "Identidad visual, catálogos web interactivos y herramientas de software a medida para potenciar tu empresa.",
-                sec1: "1. Diseño Gráfico & Identidad Visual",
+                
+                sec1: "Diseño Gráfico & Identidad Visual",
                 gal_title: "Galería de Trabajos & Marcas",
                 gal_badge: "50 Fotos",
                 gal_desc: "Explorá cartelería, vinilos, packaging y aplicaciones de marca",
                 pdf_title: "Portfolio Corporativo DGI",
                 pdf_desc: "Descargá y mirá logofolio, branding, packaging y manuales",
                 
-                sec2: "2. Páginas Web & Reemplazo de Linktree",
-                wb1_tag: "Web Oficial",
+                sec2: "Sitios Web & Reemplazo de Linktree",
+                bc_tag: "⚡ BIO-LINK GT4",
+                bc_desc: "Estética vehicular ejecutiva, catálogo interactivo y telemetría de carrera.",
+                wb1_tag: "🌐 SITIO WEB",
                 wb1_desc: "Sitio web completo & reservas restaurante.",
-                wb2_tag: "Web Hotel",
+                wb2_tag: "🌐 SITIO WEB",
                 wb2_desc: "Web oficial de lujo en Copacabana.",
-                wb3_tag: "Bio-Link",
+                wb3_tag: "⚡ BIO-LINK",
                 wb3_desc: "Carta digital interactiva y enlaces directos.",
-                wb4_tag: "Bio-Link",
+                wb4_tag: "⚡ BIO-LINK",
                 wb4_desc: "Catálogo de servicios, precios y turnos online.",
-                wb5_tag: "Bio-Link",
+                wb5_tag: "⚡ BIO-LINK",
                 wb5_desc: "Catálogo industrial y contacto para clientes.",
-                wb6_tag: "Bio-Link",
+                wb6_tag: "⚡ BIO-LINK",
                 wb6_desc: "Experiencia interactiva para hotelería y turismo.",
 
-                sec3: "3. Automatizaciones & Soluciones de Datos",
+                sec3: "Automatizaciones & Soluciones de Datos",
                 aut1_badge: "Ahorro de Tiempo",
                 aut1_title: "Tareas Repetitivas en Piloto Automático",
                 aut1_desc: "Si en tu negocio haces lo mismo todos los días a mano, creamos un sistema que lo haga solo en segundos.",
                 aut2_badge: "Organización",
-                aut2_title: "Ordenar y Limpiar tus Listas de Clientes",
-                aut2_desc: "¿Tus Excel o bases están desordenados? Eliminamos números duplicados y organizamos tus contactos para WhatsApp.",
+                aut2_title: "Ordenar y Limpiar Listas de Clientes",
+                aut2_desc: "¿Tus bases están desordenadas? Eliminamos duplicados y organizamos tus contactos listos para WhatsApp.",
                 aut3_badge: "Archivos",
                 aut3_title: "Conversión de Archivos por Lotes",
                 aut3_desc: "Pasa cientos de comprobantes, imágenes o PDFs a planillas de Excel al instante, sin cargar dato por dato.",
@@ -1180,28 +1253,31 @@
                 title_prefix: "Design & ",
                 title_highlight: "Tecnologia",
                 subtitle: "Identidade visual, sites interativos e ferramentas de automação para acelerar sua empresa.",
-                sec1: "1. Design Gráfico & Identidade Visual",
+                
+                sec1: "Design Gráfico & Identidade Visual",
                 gal_title: "Galeria de Projetos & Marcas",
                 gal_badge: "50 Fotos",
                 gal_desc: "Explore sinalização, adesivos, embalagens e branding",
                 pdf_title: "Portfólio Corporativo DGI",
                 pdf_desc: "Veja logofólio, branding, embalagens e manuais",
                 
-                sec2: "2. Sites & Substituição de Linktree",
-                wb1_tag: "Site Oficial",
+                sec2: "Sites & Substituição de Linktree",
+                bc_tag: "⚡ BIO-LINK GT4",
+                bc_desc: "Estética automotiva executiva, catálogo interativo e telemetria GT4.",
+                wb1_tag: "🌐 SITE OFICIAL",
                 wb1_desc: "Site completo & reservas para restaurante.",
-                wb2_tag: "Site Hotel",
+                wb2_tag: "🌐 SITE HOTEL",
                 wb2_desc: "Site oficial de luxo em Copacabana.",
-                wb3_tag: "Bio-Link",
+                wb3_tag: "⚡ BIO-LINK",
                 wb3_desc: "Cardápio digital interativo e links diretos.",
-                wb4_tag: "Bio-Link",
+                wb4_tag: "⚡ BIO-LINK",
                 wb4_desc: "Catálogo de serviços, valores e agendamentos online.",
-                wb5_tag: "Bio-Link",
+                wb5_tag: "⚡ BIO-LINK",
                 wb5_desc: "Catálogo industrial e atendimento a clientes.",
-                wb6_tag: "Bio-Link",
+                wb6_tag: "⚡ BIO-LINK",
                 wb6_desc: "Experiência interativa para hotelaria e turismo.",
 
-                sec3: "3. Automação & Soluções de Dados",
+                sec3: "Automação & Soluções de Dados",
                 aut1_badge: "Economia de Tempo",
                 aut1_title: "Tarefas Repetitivas no Piloto Automático",
                 aut1_desc: "Se você faz a mesma tarefa manual todo dia, criamos um sistema que faz tudo sozinho em segundos.",
@@ -1231,28 +1307,31 @@
                 title_prefix: "Design & ",
                 title_highlight: "Technology",
                 subtitle: "Visual branding, interactive web links, and tailored automation tools to empower your business.",
-                sec1: "1. Graphic Design & Branding",
+                
+                sec1: "Graphic Design & Branding",
                 gal_title: "Branding & Print Portfolio",
                 gal_badge: "50 Photos",
                 gal_desc: "Explore signage, decals, packaging, and brand identities",
                 pdf_title: "Corporate Portfolio (PDF)",
                 pdf_desc: "Download full logo showcase, brand identity and packaging",
                 
-                sec2: "2. Websites & Linktree Replacements",
-                wb1_tag: "Official Web",
+                sec2: "Websites & Linktree Replacements",
+                bc_tag: "⚡ BIO-LINK GT4",
+                bc_desc: "Executive auto detailing, interactive catalog & GT4 telemetry.",
+                wb1_tag: "🌐 OFFICIAL WEB",
                 wb1_desc: "Complete restaurant website & table booking.",
-                wb2_tag: "Hotel Web",
+                wb2_tag: "🌐 HOTEL WEB",
                 wb2_desc: "Luxury hotel website in Copacabana.",
-                wb3_tag: "Bio-Link",
+                wb3_tag: "⚡ BIO-LINK",
                 wb3_desc: "Interactive digital menu & direct links.",
-                wb4_tag: "Bio-Link",
+                wb4_tag: "⚡ BIO-LINK",
                 wb4_desc: "Service catalog, pricing & online bookings.",
-                wb5_tag: "Bio-Link",
+                wb5_tag: "⚡ BIO-LINK",
                 wb5_desc: "Industrial equipment catalog & inquiries.",
-                wb6_tag: "Bio-Link",
+                wb6_tag: "⚡ BIO-LINK",
                 wb6_desc: "Interactive guest experience for hospitality.",
 
-                sec3: "3. Automation & Practical Data Solutions",
+                sec3: "Automation & Practical Data Solutions",
                 aut1_badge: "Save Time",
                 aut1_title: "Repetitive Tasks on Autopilot",
                 aut1_desc: "If your team repeats the same manual tasks daily, we build automated tools that execute them in seconds.",
@@ -1297,6 +1376,8 @@
 
             // Sección 2 (Webs & Bio-links)
             document.getElementById('t_sec2_title').innerText = data.sec2;
+            document.getElementById('t_bc_tag').innerText = data.bc_tag;
+            document.getElementById('t_bc_desc').innerText = data.bc_desc;
             document.getElementById('t_wb1_tag').innerText = data.wb1_tag;
             document.getElementById('t_wb1_desc').innerText = data.wb1_desc;
             document.getElementById('t_wb2_tag').innerText = data.wb2_tag;
