@@ -14,7 +14,7 @@
     <!-- FUENTES CORPORATIVAS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -30,9 +30,9 @@
             --bg-card: #FFFFFF;
             --border-card: rgba(140, 195, 120, 0.65);
 
-            --text-main: #142211;
-            --text-muted: #4D6048;
-            --text-light: #6F846A;
+            --text-main: #132010;
+            --text-muted: #495C44;
+            --text-light: #6A7E65;
 
             --shadow-card: 0 4px 16px -2px rgba(60, 105, 45, 0.10), 0 2px 6px rgba(0, 0, 0, 0.04);
             --spring: cubic-bezier(0.16, 1, 0.3, 1);
@@ -201,23 +201,9 @@
             75% { transform: rotateY(-18deg); }
         }
 
-        .brand-badge {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 3px 12px;
-            border-radius: 999px;
-            background: #FCE7F3;
-            color: var(--brand-pink-deep);
-            border: 1.5px solid #F472B6;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            box-shadow: 0 2px 6px rgba(233, 137, 183, 0.15);
-        }
-
         .brand-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.65rem;
+            font-size: 1.75rem;
             font-weight: 900;
             line-height: 1.1;
             color: var(--text-main);
@@ -227,15 +213,30 @@
             color: var(--brand-pink-deep);
         }
 
+        /* ESTILOS TIPOGRÁFICOS DE RESALTE VISUAL */
         .brand-subtitle {
-            font-size: 0.83rem;
-            line-height: 1.4;
+            font-size: 0.86rem;
+            line-height: 1.5;
             color: var(--text-muted);
-            font-weight: 600;
-            max-width: 95%;
+            font-weight: 500;
+            max-width: 96%;
         }
 
-        /* BANNER DE SECCIÓN DEFINIDO */
+        .brand-subtitle strong {
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        .brand-subtitle .subtitle-dark {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .brand-subtitle em {
+            font-style: italic;
+        }
+
+        /* BANNER DE SECCIÓN DIRECTO */
         .section-header-banner {
             display: flex;
             align-items: center;
@@ -284,182 +285,144 @@
             gap: 12px;
             padding: 14px 17px;
             border-radius: 18px;
-            background: var(--bg-card);
-            border: 1.5px solid var(--border-card);
             text-decoration: none;
             color: var(--text-main);
             box-shadow: var(--shadow-card);
             transition: all 0.25s var(--spring);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .software-card-item:hover {
             transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
         }
 
         /* =========================================================
-           COLORIMETRÍA CORPORATIVA INDIVIDUAL POR MARCA
+           COLORIMETRÍA INTENSA Y DEFINIDA SEGÚN CADA MARCA
            ========================================================= */
 
-        /* 1. BALDORIA MADRID (CORAL NAPOLITANO) */
+        /* 1. BALDORIA MADRID (CORAL VIVO) */
         .card-brand-baldoria {
-            border-color: rgba(255, 97, 111, 0.45);
-            border-left: 5px solid #FF616F;
-            background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F6 100%);
+            background: linear-gradient(135deg, #FFF0F3 0%, #FFDCE2 100%);
+            border: 2px solid #FF8095;
+            border-left: 7px solid #FF4757;
         }
-        .card-brand-baldoria:hover {
-            border-color: #FF616F;
-            box-shadow: 0 12px 30px rgba(255, 97, 111, 0.22);
-        }
+        .card-brand-baldoria:hover { border-color: #FF4757; }
         .card-brand-baldoria .project-num {
-            background: #FFE4E6;
-            border-color: #FDA4AF;
-            color: #E11D48;
+            background: #FFD4DC;
+            border-color: #FF8095;
+            color: #D6133B;
         }
-        .card-brand-baldoria:hover .project-num {
-            background: #FF616F;
-            color: #FFFFFF;
-            border-color: #FF616F;
+        .card-brand-baldoria .soft-cat-badge {
+            background: #FFD4DC;
+            color: #C00F32;
+            border-color: #FF8095;
         }
         .card-brand-baldoria .soft-badge-link {
-            color: #E11D48;
-            background: #FFE4E6;
-            border-color: #FDA4AF;
-        }
-        .card-brand-baldoria:hover .soft-badge-link {
-            background: #FF616F;
-            color: #FFFFFF;
-            border-color: #FF616F;
+            color: #D6133B;
+            background: #FFFFFF;
+            border-color: #FF8095;
         }
 
         /* 2. BLACK CENTER CARS (TITANIO OBSIDIAN & ORO GT4) */
         .card-brand-blackcenter {
-            background: linear-gradient(135deg, #12151D 0%, #1A1F2B 100%);
-            border: 1.8px solid #FFC700;
-            border-left: 6px solid #FFC700;
+            background: linear-gradient(135deg, #0F1218 0%, #171B26 100%);
+            border: 2px solid #FFC700;
+            border-left: 7px solid #FFC700;
             color: #FFFFFF;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 16px rgba(255, 199, 0, 0.2);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(255, 199, 0, 0.25);
         }
         .card-brand-blackcenter:hover {
             border-color: #FFFFFF;
             border-left-color: #FFC700;
-            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45), 0 0 22px rgba(255, 199, 0, 0.35);
         }
         .card-brand-blackcenter .soft-name { color: #FFFFFF; }
         .card-brand-blackcenter .soft-tag { color: #CBD5E1; }
         .card-brand-blackcenter .project-num {
-            background: rgba(255, 199, 0, 0.18);
+            background: rgba(255, 199, 0, 0.22);
             border-color: #FFC700;
             color: #FFC700;
         }
-        .card-brand-blackcenter:hover .project-num {
-            background: #FFC700;
-            color: #0A0D11;
+        .card-brand-blackcenter .soft-cat-badge {
+            background: rgba(255, 199, 0, 0.2);
+            color: #FFC700;
             border-color: #FFC700;
         }
         .card-brand-blackcenter .soft-badge-link {
             color: #FFC700;
-            background: rgba(255, 199, 0, 0.15);
-            border-color: #FFC700;
-        }
-        .card-brand-blackcenter:hover .soft-badge-link {
-            background: #FFC700;
-            color: #0A0D11;
+            background: rgba(255, 199, 0, 0.18);
             border-color: #FFC700;
         }
 
-        /* 3. PELUQUERÍA ALVEAR (SEPIA VINTAGE & CUERO) */
+        /* 3. PELUQUERÍA ALVEAR (SEPIA & MIEL CÁLIDO INTENSO) */
         .card-brand-alvear {
-            border-color: rgba(142, 104, 71, 0.4);
-            border-left: 5px solid #8E6847;
-            background: linear-gradient(135deg, #FFFFFF 0%, #FAF6F0 100%);
+            background: linear-gradient(135deg, #FAF3E8 0%, #EEDBC5 100%);
+            border: 2px solid #C4A17B;
+            border-left: 7px solid #8E6847;
         }
-        .card-brand-alvear:hover {
-            border-color: #8E6847;
-            box-shadow: 0 12px 30px rgba(117, 88, 63, 0.2);
-        }
+        .card-brand-alvear:hover { border-color: #8E6847; }
         .card-brand-alvear .project-num {
-            background: #FDF4E7;
-            border-color: #E2CAAE;
-            color: #75583F;
+            background: #E8D2BB;
+            border-color: #B88E64;
+            color: #5C3D1E;
         }
-        .card-brand-alvear:hover .project-num {
-            background: #75583F;
-            color: #FFFFFF;
-            border-color: #75583F;
+        .card-brand-alvear .soft-cat-badge {
+            background: #E8D2BB;
+            color: #5C3D1E;
+            border-color: #B88E64;
         }
         .card-brand-alvear .soft-badge-link {
-            color: #75583F;
-            background: #FDF4E7;
-            border-color: #E2CAAE;
-        }
-        .card-brand-alvear:hover .soft-badge-link {
-            background: #75583F;
-            color: #FFFFFF;
-            border-color: #75583F;
+            color: #5C3D1E;
+            background: #FFFFFF;
+            border-color: #C4A17B;
         }
 
-        /* 4. FRIMAQ MAQUINARIAS (AZUL ACERO INDUSTRIAL) */
+        /* 4. FRIMAQ MAQUINARIAS (AZUL ACERO INDUSTRIAL DEFINIDO) */
         .card-brand-frimaq {
-            border-color: rgba(2, 132, 199, 0.4);
-            border-left: 5px solid #0284C7;
-            background: linear-gradient(135deg, #FFFFFF 0%, #F0F9FF 100%);
+            background: linear-gradient(135deg, #EBF5FE 0%, #CFE8FC 100%);
+            border: 2px solid #70B8F4;
+            border-left: 7px solid #0284C7;
         }
-        .card-brand-frimaq:hover {
-            border-color: #0284C7;
-            box-shadow: 0 12px 30px rgba(2, 132, 199, 0.2);
-        }
+        .card-brand-frimaq:hover { border-color: #0284C7; }
         .card-brand-frimaq .project-num {
-            background: #E0F2FE;
-            border-color: #BAE6FD;
-            color: #0369A1;
+            background: #C4E4FB;
+            border-color: #70B8F4;
+            color: #026AA1;
         }
-        .card-brand-frimaq:hover .project-num {
-            background: #0284C7;
-            color: #FFFFFF;
-            border-color: #0284C7;
+        .card-brand-frimaq .soft-cat-badge {
+            background: #C4E4FB;
+            color: #026AA1;
+            border-color: #70B8F4;
         }
         .card-brand-frimaq .soft-badge-link {
-            color: #0369A1;
-            background: #E0F2FE;
-            border-color: #BAE6FD;
-        }
-        .card-brand-frimaq:hover .soft-badge-link {
-            background: #0284C7;
-            color: #FFFFFF;
-            border-color: #0284C7;
+            color: #026AA1;
+            background: #FFFFFF;
+            border-color: #70B8F4;
         }
 
-        /* 5. FOUR SEASONS (VIOLETA ORQUÍDEA DE LUJO) */
+        /* 5. FOUR SEASONS MX (LAVANDA & AMATISTA LUXURY PROFUNDO) */
         .card-brand-fourseasons {
-            border-color: rgba(139, 92, 246, 0.4);
-            border-left: 5px solid #8B5CF6;
-            background: linear-gradient(135deg, #FFFFFF 0%, #FDF4FF 100%);
+            background: linear-gradient(135deg, #F5EFFE 0%, #E3D5FC 100%);
+            border: 2px solid #B794F6;
+            border-left: 7px solid #7C3AED;
         }
-        .card-brand-fourseasons:hover {
-            border-color: #8B5CF6;
-            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.2);
-        }
+        .card-brand-fourseasons:hover { border-color: #7C3AED; }
         .card-brand-fourseasons .project-num {
-            background: #F3E8FF;
-            border-color: #DDD6FE;
-            color: #6D28D9;
+            background: #DDC8FC;
+            border-color: #B794F6;
+            color: #551AB8;
         }
-        .card-brand-fourseasons:hover .project-num {
-            background: #8B5CF6;
-            color: #FFFFFF;
-            border-color: #8B5CF6;
+        .card-brand-fourseasons .soft-cat-badge {
+            background: #DDC8FC;
+            color: #551AB8;
+            border-color: #B794F6;
         }
         .card-brand-fourseasons .soft-badge-link {
-            color: #6D28D9;
-            background: #F3E8FF;
-            border-color: #DDD6FE;
-        }
-        .card-brand-fourseasons:hover .soft-badge-link {
-            background: #8B5CF6;
-            color: #FFFFFF;
-            border-color: #8B5CF6;
+            color: #551AB8;
+            background: #FFFFFF;
+            border-color: #B794F6;
         }
 
         /* COMPONENTES INTERNOS DE TARJETAS */
@@ -479,7 +442,7 @@
             height: 44px;
             min-width: 44px;
             border-radius: 13px;
-            border: 1.5px solid;
+            border: 1.8px solid;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             font-weight: 900;
@@ -500,7 +463,7 @@
         .soft-head-row {
             display: flex;
             align-items: center;
-            gap: 7px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
@@ -517,19 +480,14 @@
 
         .soft-cat-badge {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.62rem;
+            font-size: 0.60rem;
             font-weight: 800;
             padding: 2px 7px;
-            border-radius: 6px;
+            border-radius: 5px;
             text-transform: uppercase;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.05em;
+            border: 1px solid;
         }
-
-        .soft-cat-badge.food { background: #FFE4E6; color: #BE123C; border: 1.5px solid #FDA4AF; }
-        .soft-cat-badge.detailing { background: rgba(255, 199, 0, 0.15); color: #FFC700; border: 1.5px solid #FFC700; }
-        .soft-cat-badge.barber { background: #FEF3C7; color: #78350F; border: 1.5px solid #FCD34D; }
-        .soft-cat-badge.industry { background: #E0F2FE; color: #0369A1; border: 1.5px solid #7DD3FC; }
-        .soft-cat-badge.hotel { background: #EDE9FE; color: #6D28D9; border: 1.5px solid #C4B5FD; }
 
         .soft-tag {
             font-size: 0.77rem;
@@ -550,14 +508,17 @@
             gap: 4px;
             white-space: nowrap;
             transition: all 0.22s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
         }
 
         .software-card-item:hover .soft-badge-link {
+            background: var(--brand-pink);
+            color: #FFFFFF;
+            border-color: var(--brand-pink);
             transform: translateX(2px);
         }
 
-        /* BOTÓN DESTACADO WHATSAPP (ÍCONO EN 32PX PROMINENTE) */
+        /* BOTÓN DESTACADO WHATSAPP (32PX PROMINENTE) */
         .cta-box-wsp {
             margin-top: 4px;
             display: flex;
@@ -590,7 +551,7 @@
             display: block;
         }
 
-        /* BOTÓN VOLVER AL HUB GENERAL */
+        /* BOTÓN VOLVER */
         .btn-back-hub {
             display: flex;
             align-items: center;
@@ -654,7 +615,7 @@
 </head>
 <body>
 
-    <!-- FONDO AMBIENTAL: TEXTURA ORIGINAL CON PRESENCIA -->
+    <!-- FONDO AMBIENTAL: PATRÓN 1111 CON PRESENCIA NÍTIDA -->
     <div class="ambient-canvas">
         <div class="spring-spotlight"></div>
         <div class="summer-sun-glow"></div>
@@ -674,7 +635,7 @@
             </div>
         </nav>
 
-        <!-- CABECERA CON LOGO OFICIAL 1111 -->
+        <!-- CABECERA -->
         <header class="brand-header">
             <div class="logo-wrapper">
                 <svg viewBox="0 0 481.2 481.2" style="width: 100%; height: 100%; border-radius: 50%;">
@@ -688,110 +649,110 @@
                     </g>
                 </svg>
             </div>
-            <span class="brand-badge" id="uiBadge">Desarrollo Web & Software a Medida</span>
+            
             <h1 class="brand-title">Soluciones <span>Digitales</span></h1>
             <p class="brand-subtitle" id="uiSubtitle">
-                Desarrollo de páginas web interactivas, cartas digitales y plataformas a medida para potenciar tu marca.
+                Reemplazamos tu <strong>Linktree</strong> con un link <span class="subtitle-dark">100% tuyo y personalizado</span> a medida: <em>con tus propios colores, botones, fotos, WhatsApp directo, mapas, cartas / turnos / servicios, música, y todo lo que quieras poner, ¡sin límites!</em>
             </p>
         </header>
 
-        <!-- SECCIÓN DE CASOS DE ÉXITO -->
+        <!-- SECCIÓN DE ENLACES -->
         <section style="display:flex; flex-direction:column; gap:11px;">
             
             <div class="section-header-banner">
                 <span class="section-num-pill">[01]</span>
-                <span class="section-title" id="t_sec_title">Desarrollos Web & Hubs Interactivos</span>
+                <span class="section-title" id="t_sec_title">Reemplazamos tu Linktree</span>
             </div>
 
             <div class="software-cards-list">
                 
-                <!-- 01. BALDORIA MADRID (CORAL NAPOLITANO) -->
-                <a href="https://onceoncegrafica-1111.github.io/baldoriamadrid/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-baldoria">
+                <!-- 01. BALDORIA MADRID (CORAL VIVO) -->
+                <a href="https://onceoncegrafica-1111.github.io/baldoriamadrid/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-baldoria" onclick="playClickSound()">
                     <div class="soft-left">
                         <div class="project-num">01</div>
                         <div class="soft-meta">
                             <div class="soft-head-row">
                                 <span class="soft-name">Baldoria Madrid</span>
-                                <span class="soft-cat-badge food">🍕 Gastronomía</span>
+                                <span class="soft-cat-badge">Gastronomía · Carta</span>
                             </div>
-                            <span class="soft-tag" id="tag_baldoria">Carta digital interactiva, reservas y experiencia trattoria.</span>
+                            <span class="soft-tag" id="tag_baldoria">Carta digital, reservas en tiempo real y minijuego interactivo.</span>
                         </div>
                     </div>
-                    <span class="soft-badge-link" id="link_baldoria">Ver Web ↗</span>
+                    <span class="soft-badge-link" id="link_baldoria">Ver Link ↗</span>
                 </a>
 
-                <!-- 02. BLACK CENTER CARS (TITANIO OBSIDIAN & ORO GT4) -->
-                <a href="https://onceoncegrafica-1111.github.io/blackcenter/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-blackcenter">
+                <!-- 02. BLACK CENTER CARS (GT4 TITANIO/ORO) -->
+                <a href="https://onceoncegrafica-1111.github.io/blackcenter/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-blackcenter" onclick="playClickSound()">
                     <div class="soft-left">
                         <div class="project-num">02</div>
                         <div class="soft-meta">
                             <div class="soft-head-row">
                                 <span class="soft-name">Black Center Cars</span>
-                                <span class="soft-cat-badge detailing">🏎️ Detailing GT4</span>
+                                <span class="soft-cat-badge">Detailing · GT4</span>
                             </div>
-                            <span class="soft-tag" id="tag_blackcenter">Estética vehicular ejecutiva, catálogo interactivo y telemetría de carrera.</span>
+                            <span class="soft-tag" id="tag_blackcenter">Mantenimiento estético, telemetría GT4, música y turnos directos.</span>
                         </div>
                     </div>
-                    <span class="soft-badge-link" id="link_blackcenter">Ver Web ↗</span>
+                    <span class="soft-badge-link" id="link_blackcenter">Ver Link ↗</span>
                 </a>
 
-                <!-- 03. PELUQUERÍA ALVEAR (SEPIA VINTAGE & CUERO) -->
-                <a href="https://onceoncegrafica-1111.github.io/peluqueriaalvear/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-alvear">
+                <!-- 03. PELUQUERÍA ALVEAR (SEPIA CÁLIDO) -->
+                <a href="https://onceoncegrafica-1111.github.io/peluqueriaalvear/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-alvear" onclick="playClickSound()">
                     <div class="soft-left">
                         <div class="project-num">03</div>
                         <div class="soft-meta">
                             <div class="soft-head-row">
                                 <span class="soft-name">Peluquería Alvear</span>
-                                <span class="soft-cat-badge barber">✂️ Estilo & Turnos</span>
+                                <span class="soft-cat-badge">Estilo · Turnos</span>
                             </div>
-                            <span class="soft-tag" id="tag_alvear">Catálogo de servicios tradicionales, galería y reservas online.</span>
+                            <span class="soft-tag" id="tag_alvear">Catálogo tradicional de servicios, galería interactiva y reservas.</span>
                         </div>
                     </div>
-                    <span class="soft-badge-link" id="link_alvear">Ver Web ↗</span>
+                    <span class="soft-badge-link" id="link_alvear">Ver Link ↗</span>
                 </a>
 
-                <!-- 04. FRIMAQ MAQUINARIAS (AZUL ACERO INDUSTRIAL) -->
-                <a href="https://onceoncegrafica-1111.github.io/frimaq/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-frimaq">
+                <!-- 04. FRIMAQ MAQUINARIAS (AZUL ACERO) -->
+                <a href="https://onceoncegrafica-1111.github.io/frimaq/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-frimaq" onclick="playClickSound()">
                     <div class="soft-left">
                         <div class="project-num">04</div>
                         <div class="soft-meta">
                             <div class="soft-head-row">
                                 <span class="soft-name">Frimaq Maquinarias</span>
-                                <span class="soft-cat-badge industry">🏭 Industria</span>
+                                <span class="soft-cat-badge">Industria · B2B</span>
                             </div>
-                            <span class="soft-tag" id="tag_frimaq">Catálogo industrial interactivo y canal directo de presupuestos.</span>
+                            <span class="soft-tag" id="tag_frimaq">Catálogo industrial de maquinaria pesada y canal de presupuestos.</span>
                         </div>
                     </div>
-                    <span class="soft-badge-link" id="link_frimaq">Ver Web ↗</span>
+                    <span class="soft-badge-link" id="link_frimaq">Ver Link ↗</span>
                 </a>
 
-                <!-- 05. FOUR SEASONS MX (VIOLETA ORQUÍDEA DE LUJO) -->
-                <a href="https://onceoncegrafica-1111.github.io/fourseasonsmx/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-fourseasons">
+                <!-- 05. FOUR SEASONS MX (LAVANDA LUXURY) -->
+                <a href="https://onceoncegrafica-1111.github.io/fourseasonsmx/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-fourseasons" onclick="playClickSound()">
                     <div class="soft-left">
                         <div class="project-num">05</div>
                         <div class="soft-meta">
                             <div class="soft-head-row">
                                 <span class="soft-name">Four Seasons MX</span>
-                                <span class="soft-cat-badge hotel">🏨 Hotelería de Lujo</span>
+                                <span class="soft-cat-badge">Hospitality · Lujo</span>
                             </div>
-                            <span class="soft-tag" id="tag_fourseasons">Experiencia digital inmersiva para turismo y hospitalidad.</span>
+                            <span class="soft-tag" id="tag_fourseasons">Experiencia inmersiva para turismo premium y hotelería.</span>
                         </div>
                     </div>
-                    <span class="soft-badge-link" id="link_fourseasons">Ver Web ↗</span>
+                    <span class="soft-badge-link" id="link_fourseasons">Ver Link ↗</span>
                 </a>
 
             </div>
 
         </section>
 
-        <!-- BOTÓN PRINCIPAL: COTIZAR POR WHATSAPP (ÍCONO EN 32PX PROMINENTE) -->
-        <a href="https://wa.me/5491131933611?text=%C2%A1Hola!%20V%C3%AD%20sus%20trabajos%20de%20p%C3%A1ginas%20web%20y%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener noreferrer" class="cta-box-wsp" id="btnWspCta">
+        <!-- BOTÓN PRINCIPAL: COTIZAR POR WHATSAPP (32PX PROMINENTE) -->
+        <a href="https://wa.me/5491131933611?text=%C2%A1Hola!%20Quiero%20reemplazar%20mi%20Linktree%20y%20crear%20mi%20link%20100%25%20personalizado." target="_blank" rel="noopener noreferrer" class="cta-box-wsp" id="btnWspCta" onclick="playClickSound()">
             <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
-            <span id="uiBtnCta">Cotizar mi Proyecto por WhatsApp ↗</span>
+            <span id="uiBtnCta">Crear mi Link Personalizado en WhatsApp ↗</span>
         </a>
 
         <!-- ENLACE DE REGRESO AL HUB COMPLETO -->
-        <a href="nosotros.html" class="btn-back-hub" id="uiBackHub">
+        <a href="nosotros.html" class="btn-back-hub" id="uiBackHub" onclick="playClickSound()">
             ← Ver Hub Oficial de 1111 Gráfica
         </a>
 
@@ -800,79 +761,93 @@
             <div class="footer-badge">
                 <span>1111 DIGITAL</span>
                 <span style="color: var(--brand-pink);">✦</span>
-                <span id="uiFooterBadge">SOFTWARE & INNOVACIÓN</span>
+                <span id="uiFooterBadge">SOLUCIONES A MEDIDA</span>
             </div>
             <span class="footer-legal">© 2026 1111 Gráfica · Todos los derechos reservados</span>
         </footer>
 
     </main>
 
-    <!-- TRADUCCIONES Y CAMBIO DINÁMICO DE IDIOMA -->
+    <!-- TRADUCCIONES, SONIDO OFICIAL Y CAMBIO DINÁMICO DE IDIOMA -->
     <script>
+        // =========================================================
+        // REPRODUCTOR DEL SONIDO OFICIAL DE BOTONES GITHUB
+        // =========================================================
+        const gtMenuAudio = new Audio("./mine_gran_turismo_4_menu.mp3");
+        gtMenuAudio.volume = 0.5;
+
+        function playClickSound() {
+            try {
+                const click = gtMenuAudio.cloneNode();
+                click.volume = 0.5;
+                click.play().catch(() => {});
+            } catch(e) {}
+        }
+
+        // =========================================================
+        // TRADUCCIONES ACTUALIZADAS (CON FORMATO HTML EN SUBTÍTULOS)
+        // =========================================================
         const TRANSLATIONS = {
             es: {
                 langHint: "🌐 Idioma",
-                badge: "Desarrollo Web & Software a Medida",
                 title_prefix: "Soluciones ",
                 title_highlight: "Digitales",
-                subtitle: "Desarrollo de páginas web interactivas, cartas digitales y plataformas a medida para potenciar tu marca.",
-                sec_title: "Reemplazamos tu LINKTREE",
-                tag_baldoria: "Carta digital interactiva, reservas y experiencia trattoria.",
-                tag_blackcenter: "Estética vehicular ejecutiva, catálogo interactivo y telemetría de carrera.",
-                tag_alvear: "Catálogo de servicios tradicionales, galería y reservas online.",
-                tag_frimaq: "Catálogo industrial interactivo y canal directo de presupuestos.",
-                tag_fourseasons: "Experiencia digital inmersiva para turismo y hospitalidad.",
-                view_web: "Ver Web ↗",
-                btn_cta: "Cotizar mi Proyecto por WhatsApp ↗",
+                subtitle: "Reemplazamos tu <strong>Linktree</strong> con un link <span class=\"subtitle-dark\">100% tuyo y personalizado</span> a medida: <em>con tus propios colores, botones, fotos, WhatsApp directo, mapas, cartas / turnos / servicios, música, y todo lo que quieras poner, ¡sin límites!</em>",
+                sec_title: "Reemplazamos tu Linktree",
+                tag_baldoria: "Carta digital, reservas en tiempo real y minijuego interactivo.",
+                tag_blackcenter: "Mantenimiento estético, telemetría GT4, música y turnos directos.",
+                tag_alvear: "Catálogo tradicional de servicios, galería interactiva y reservas.",
+                tag_frimaq: "Catálogo industrial de maquinaria pesada y canal de presupuestos.",
+                tag_fourseasons: "Experiencia inmersiva para turismo premium y hotelería.",
+                view_web: "Ver Link ↗",
+                btn_cta: "Crear mi Link Personalizado en WhatsApp ↗",
                 back_hub: "← Ver Hub Oficial de 1111 Gráfica",
-                footer_badge: "SOFTWARE & INNOVACIÓN",
-                wsp_msg: "¡Hola! Ví sus trabajos de páginas web y quiero cotizar un proyecto."
+                footer_badge: "SOLUCIONES A MEDIDA",
+                wsp_msg: "¡Hola! Quiero reemplazar mi Linktree y crear mi link 100% personalizado."
             },
             pt: {
                 langHint: "🌐 Idioma",
-                badge: "Desenvolvimento Web & Software sob Medida",
                 title_prefix: "Soluções ",
                 title_highlight: "Digitais",
-                subtitle: "Desenvolvimento de sites interativos, cardápios online e plataformas sob medida para sua empresa.",
+                subtitle: "Substituímos o seu <strong>Linktree</strong> com um link <span class=\"subtitle-dark\">100% seu e personalizado</span> sob medida: <em>com suas próprias cores, botões, fotos, WhatsApp direto, mapas, cardápios / agendamentos / serviços, música e tudo o que você quiser colocar, sem limites!</em>",
                 sec_title: "Substituímos o seu Linktree",
-                tag_baldoria: "Cardápio digital interativo, reservas e experiência trattoria.",
-                tag_blackcenter: "Estética automotiva executiva, catálogo interativo e telemetria GT4.",
-                tag_alvear: "Catálogo de serviços tradicionais, galeria e agendamento online.",
-                tag_frimaq: "Catálogo industrial interativo e canal direto de orçamentos.",
-                tag_fourseasons: "Experiência digital imersiva para turismo e hospitalidade.",
-                view_web: "Ver Site ↗",
-                btn_cta: "Solicitar meu Site no WhatsApp ↗",
+                tag_baldoria: "Cardápio digital, reservas em tempo real e jogo interativo.",
+                tag_blackcenter: "Estética automotiva, telemetria GT4, música e agendamento direto.",
+                tag_alvear: "Catálogo tradicional de serviços, galeria interativa e reservas.",
+                tag_frimaq: "Catálogo industrial de maquinário pesado e orçamentos diretos.",
+                tag_fourseasons: "Experiência imersiva para turismo de luxo e hotelaria.",
+                view_web: "Ver Link ↗",
+                btn_cta: "Criar meu Link Personalizado no WhatsApp ↗",
                 back_hub: "← Ver Hub Oficial da 1111 Gráfica",
-                footer_badge: "SOFTWARE & INOVAÇÃO",
-                wsp_msg: "Olá! Vi os projetos de sites e softwares de vocês e gostaria de solicitar um orçamento."
+                footer_badge: "SOLUÇÕES SOB MEDIDA",
+                wsp_msg: "Olá! Quero substituir meu Linktree e criar meu link 100% personalizado."
             },
             en: {
                 langHint: "🌐 Language",
-                badge: "Custom Web & Software Development",
                 title_prefix: "Digital ",
                 title_highlight: "Solutions",
-                subtitle: "High-performance websites, interactive menus, and tailor-made platforms to elevate your business.",
+                subtitle: "We replace your <strong>Linktree</strong> with a link <span class=\"subtitle-dark\">100% custom and made for you</span>: <em>your brand colors, buttons, photos, direct WhatsApp, live maps, menus / bookings / services, music, and anything you want to feature, without limits!</em>",
                 sec_title: "We replace your Linktree",
-                tag_baldoria: "Interactive digital menu, table booking & trattoria experience.",
-                tag_blackcenter: "Executive auto detailing hub, interactive catalog & GT4 telemetry.",
-                tag_alvear: "Traditional grooming services catalog, gallery & online bookings.",
-                tag_frimaq: "Interactive industrial machinery catalog & direct quote requests.",
-                tag_fourseasons: "Immersive luxury digital experience for hospitality and tourism.",
-                view_web: "Visit Site ↗",
-                btn_cta: "Get a Website Quote on WhatsApp ↗",
+                tag_baldoria: "Interactive digital menu, real-time table booking & game.",
+                tag_blackcenter: "Executive auto detailing, GT4 telemetry, music & direct bookings.",
+                tag_alvear: "Traditional grooming catalog, interactive gallery & appointments.",
+                tag_frimaq: "Heavy industrial machinery catalog & direct quotation system.",
+                tag_fourseasons: "Immersive luxury digital experience for hospitality.",
+                view_web: "View Link ↗",
+                btn_cta: "Create my Custom Link on WhatsApp ↗",
                 back_hub: "← Go back to 1111 Gráfica Hub",
-                footer_badge: "SOFTWARE & INNOVATION",
-                wsp_msg: "Hello! I saw your website and software projects and would like to request a quote."
+                footer_badge: "TAILOR-MADE SOLUTIONS",
+                wsp_msg: "Hello! I want to replace my Linktree and create a 100% custom link."
             }
         };
 
         function setLanguage(lang) {
+            playClickSound();
             const data = TRANSLATIONS[lang] || TRANSLATIONS.es;
 
             document.getElementById('uiLangHint').innerText = data.langHint;
-            document.getElementById('uiBadge').innerText = data.badge;
             document.querySelector('.brand-title').innerHTML = `${data.title_prefix}<span>${data.title_highlight}</span>`;
-            document.getElementById('uiSubtitle').innerText = data.subtitle;
+            document.getElementById('uiSubtitle').innerHTML = data.subtitle;
             document.getElementById('t_sec_title').innerText = data.sec_title;
 
             document.getElementById('tag_baldoria').innerText = data.tag_baldoria;
@@ -890,7 +865,7 @@
             document.getElementById('uiBackHub').innerText = data.back_hub;
             document.getElementById('uiFooterBadge').innerText = data.footer_badge;
 
-            // Enlace dinámico de WhatsApp con mensaje en el idioma seleccionado
+            // Enlace dinámico de WhatsApp adaptado al idioma
             const wspBase = "https://wa.me/5491131933611?text=";
             document.getElementById('btnWspCta').href = wspBase + encodeURIComponent(data.wsp_msg);
 
@@ -910,7 +885,35 @@
             try {
                 savedLang = localStorage.getItem('1111_preferred_lang') || 'es';
             } catch(e) {}
-            setLanguage(savedLang);
+
+            const data = TRANSLATIONS[savedLang] || TRANSLATIONS.es;
+            document.getElementById('uiLangHint').innerText = data.langHint;
+            document.querySelector('.brand-title').innerHTML = `${data.title_prefix}<span>${data.title_highlight}</span>`;
+            document.getElementById('uiSubtitle').innerHTML = data.subtitle;
+            document.getElementById('t_sec_title').innerText = data.sec_title;
+
+            document.getElementById('tag_baldoria').innerText = data.tag_baldoria;
+            document.getElementById('tag_blackcenter').innerText = data.tag_blackcenter;
+            document.getElementById('tag_alvear').innerText = data.tag_alvear;
+            document.getElementById('tag_frimaq').innerText = data.tag_frimaq;
+            document.getElementById('tag_fourseasons').innerText = data.tag_fourseasons;
+
+            ['link_baldoria', 'link_blackcenter', 'link_alvear', 'link_frimaq', 'link_fourseasons'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.innerText = data.view_web;
+            });
+
+            document.getElementById('uiBtnCta').innerText = data.btn_cta;
+            document.getElementById('uiBackHub').innerText = data.back_hub;
+            document.getElementById('uiFooterBadge').innerText = data.footer_badge;
+
+            const wspBase = "https://wa.me/5491131933611?text=";
+            document.getElementById('btnWspCta').href = wspBase + encodeURIComponent(data.wsp_msg);
+
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            if (savedLang === 'es') document.getElementById('btnLangEs').classList.add('active');
+            if (savedLang === 'pt') document.getElementById('btnLangPt').classList.add('active');
+            if (savedLang === 'en') document.getElementById('btnLangEn').classList.add('active');
         });
     </script>
 </body>
