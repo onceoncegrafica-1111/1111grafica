@@ -402,27 +402,27 @@
             border-color: #70B8F4;
         }
 
-        /* 5. FOUR SEASONS MX (LAVANDA & AMATISTA LUXURY PROFUNDO) */
+        /* 5. FOUR SEASONS MX (VERDE HACIENDA & OLIVO BOTÁNICO) */
         .card-brand-fourseasons {
-            background: linear-gradient(135deg, #F5EFFE 0%, #E3D5FC 100%);
-            border: 2px solid #B794F6;
-            border-left: 7px solid #7C3AED;
+            background: linear-gradient(135deg, #F3F8F1 0%, #E1ECE0 100%);
+            border: 2px solid #82A979;
+            border-left: 7px solid #244122;
         }
-        .card-brand-fourseasons:hover { border-color: #7C3AED; }
+        .card-brand-fourseasons:hover { border-color: #244122; }
         .card-brand-fourseasons .project-num {
-            background: #DDC8FC;
-            border-color: #B794F6;
-            color: #551AB8;
+            background: #D3E5D0;
+            border-color: #82A979;
+            color: #193617;
         }
         .card-brand-fourseasons .soft-cat-badge {
-            background: #DDC8FC;
-            color: #551AB8;
-            border-color: #B794F6;
+            background: #D3E5D0;
+            color: #193617;
+            border-color: #82A979;
         }
         .card-brand-fourseasons .soft-badge-link {
-            color: #551AB8;
+            color: #193617;
             background: #FFFFFF;
-            border-color: #B794F6;
+            border-color: #82A979;
         }
 
         /* COMPONENTES INTERNOS DE TARJETAS */
@@ -538,7 +538,7 @@
         }
 
         .cta-box-wsp:hover {
-            transform: translateY(-2px) scale(1.01);
+            transform: translateY(-2px scale(1.01));
             box-shadow: 0 14px 30px rgba(169, 38, 103, 0.45);
         }
 
@@ -697,7 +697,7 @@
                 </a>
 
                 <!-- 03. PELUQUERÍA ALVEAR (SEPIA CÁLIDO) -->
-                <a href="https://peluqueriaalvear.github.io/link/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-alvear" onclick="playClickSound()">
+                <a href="https://onceoncegrafica-1111.github.io/peluqueriaalvear/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-alvear" onclick="playClickSound()">
                     <div class="soft-left">
                         <div class="project-num">03</div>
                         <div class="soft-meta">
@@ -726,7 +726,7 @@
                     <span class="soft-badge-link" id="link_frimaq">Ver Link ↗</span>
                 </a>
 
-                <!-- 05. FOUR SEASONS MX (LAVANDA LUXURY) -->
+                <!-- 05. FOUR SEASONS MX (VERDE HACIENDA & OLIVO BOTÁNICO) -->
                 <a href="https://onceoncegrafica-1111.github.io/fourseasonsmx/" target="_blank" rel="noopener noreferrer" class="software-card-item card-brand-fourseasons" onclick="playClickSound()">
                     <div class="soft-left">
                         <div class="project-num">05</div>
@@ -770,9 +770,6 @@
 
     <!-- TRADUCCIONES, SONIDO OFICIAL Y CAMBIO DINÁMICO DE IDIOMA -->
     <script>
-        // =========================================================
-        // REPRODUCTOR DEL SONIDO OFICIAL DE BOTONES GITHUB
-        // =========================================================
         const gtMenuAudio = new Audio("./mine_gran_turismo_4_menu.mp3");
         gtMenuAudio.volume = 0.5;
 
@@ -784,9 +781,6 @@
             } catch(e) {}
         }
 
-        // =========================================================
-        // TRADUCCIONES ACTUALIZADAS (CON FORMATO HTML EN SUBTÍTULOS)
-        // =========================================================
         const TRANSLATIONS = {
             es: {
                 langHint: "🌐 Idioma",
@@ -865,11 +859,9 @@
             document.getElementById('uiBackHub').innerText = data.back_hub;
             document.getElementById('uiFooterBadge').innerText = data.footer_badge;
 
-            // Enlace dinámico de WhatsApp adaptado al idioma
             const wspBase = "https://wa.me/5491131933611?text=";
             document.getElementById('btnWspCta').href = wspBase + encodeURIComponent(data.wsp_msg);
 
-            // Resaltado de botones de idioma
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             if (lang === 'es') document.getElementById('btnLangEs').classList.add('active');
             if (lang === 'pt') document.getElementById('btnLangPt').classList.add('active');
