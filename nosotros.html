@@ -258,21 +258,23 @@
             max-width: 92%;
         }
 
-        /* BARRA REDES SUPERIOR */
+        /* =========================================================
+           BARRA REDES SOCIALES: PROPORCIÓN Y EQUILIBRIO PERFECTO
+           ========================================================= */
         .social-bar {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            margin-top: 2px;
+            gap: 14px;
+            margin-top: 4px;
         }
 
         .social-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: #FFFFFF;
             border: 1.5px solid var(--border-card);
@@ -280,16 +282,23 @@
             text-decoration: none;
             box-shadow: 0 4px 12px rgba(60, 105, 45, 0.08);
             transition: all 0.22s var(--spring);
+            flex-shrink: 0;
         }
 
         .social-btn:hover {
             border-color: var(--brand-pink);
             color: var(--brand-pink-deep);
-            transform: translateY(-2px) scale(1.05);
+            transform: translateY(-2px) scale(1.08);
             box-shadow: 0 6px 16px var(--brand-pink-glow);
         }
 
-        .social-btn svg { width: 19px; height: 19px; }
+        /* TAMAÑO Y CENTRADO ÓPTICO EQUIVALENTE PARA LOS 3 ICONOS */
+        .social-btn svg {
+            width: 21px;
+            height: 21px;
+            display: block;
+            flex-shrink: 0;
+        }
 
         /* =========================================================
            TARJETAS / BOTONES INTERACTIVOS CON COLORIMETRÍA PROPIA
@@ -947,15 +956,28 @@
                 Identidad visual, impresiones premium y herramientas digitales para potenciar tu negocio.
             </p>
 
+            <!-- BARRA DE REDES SOCIALES IDENTICAMENTE PROPORCIONADAS -->
             <div class="social-bar">
+                <!-- WhatsApp con trazado oficial completo y proporcionado -->
                 <a href="https://wa.me/5491131933611" target="_blank" rel="noopener noreferrer" class="social-btn" id="socialWspTop" aria-label="WhatsApp">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.17 8.17 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.44 0-2.85-.38-4.09-1.1l-.29-.17-3.05.8 1.05-2.97-.19-.31a8.163 8.163 0 0 1-1.25-4.49c0-4.54 3.7-8.24 8.24-8.24m4.53 11.37c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.76-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.41 1.02 2.58.13.17 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29"/>
+                    </svg>
                 </a>
+                <!-- Instagram -->
                 <a href="https://www.instagram.com/1111.grafica" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
                 </a>
+                <!-- Correo Electrónico -->
                 <a href="mailto:onceonce.grafica@gmail.com" class="social-btn" aria-label="Email">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
                 </a>
             </div>
         </header>
@@ -1097,7 +1119,7 @@
                 </a>
 
                 <!-- 2. BLACK CENTER CARS (GT4 ORO & TITANIO) -->
-                <a href="https://blackcenter.com.ar/" target="_blank" rel="noopener noreferrer" class="software-card-item soft-blackcenter">
+                <a href="https://onceoncegrafica-1111.github.io/blackcenter/" target="_blank" rel="noopener noreferrer" class="software-card-item soft-blackcenter">
                     <div class="soft-meta">
                         <span class="soft-name">Black Center Cars</span>
                         <span class="soft-tag">Detailing Ejecutivo & Telemetría GT4</span>
